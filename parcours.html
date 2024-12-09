@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Arthur Boda - Présentation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio de Arthur Boda">
+  <meta name="keywords" content="Arthur Boda, portfolio, développement, sports de combat, BTS SIO, SLAM, SISR">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #000;
+      color: #333;
+    }
+    header {
+      background: #000;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header img {
+      width: 100px;
+    }
+    .containero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      color: #000;
+      background-color: #000;
+    }
+    .section-title {
+      text-align: center;
+      margin: 20px 0;
+      font-size: 28px;
+      color: #000;
+    }
+    .content {
+      margin: 20px 0;
+      padding: 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .skills ul {
+      list-style: none;
+      padding: 0;
+    }
+    .skills ul li {
+      margin: 5px 0;
+      padding: 5px;
+      background: #e9ecef;
+      border-radius: 3px;
+    }
+    .buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btn {
+      text-decoration: none;
+      padding: 10px 20px;
+      background: #007BFF;
+      color: #fff;
+      border-radius: 5px;
+      margin: 5px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+    .options {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .options .option {
+      width: 45%;
+      margin: 10px;
+      background: #e9ecef;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .options .option img {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+
+
+/*Abre pour parcours scolaire*/
+.tree ul {
+  padding-left: 20px;
+  list-style-type: none;
+  position: relative;
+}
+
+.tree ul::before {
+  content: '';
+  border-left: 2px solid #3d5064; /* Ligne principale de l’arbre */
+  position: absolute;
+  top: 0;
+  left: 10px;
+  bottom: 0;
+}
+
+.tree li {
+  margin: 10px 0;
+  position: relative;
+  padding-left: 30px;
+}
+
+.tree li::before {
+  content: '';
+  border-top: 2px solid #3d5064; /* Ligne horizontale */
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 20px;
+}
+
+.tree li::after {
+  content: '';
+  border-left: 2px solid #000000; /* Ligne verticale descendant de l'élément parent */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 0;
+}
+
+.tree li:last-child::after {
+  display: none; /* Supprime la ligne verticale du dernier élément */
+}
+
+.tree span {
+  display: inline-block;
+  padding: 5px 10px;
+  background: #000000;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="file:///C:/xampp/htdocs/portfolio/index.html">
+  <img src="https://i.pinimg.com/originals/f6/66/3e/f6663e888b8cd07fe16f680c9a979718.jpg" alt="Logo"> 
+</a>
+  <h1>Arthur Boda</h1>
+  <p>Développeur Web & Passionné de Sports de Combat</p>
+</header>
+
+<div class="containero">
+  <div class="content">
+    <h2 class="section-title">À propos de moi</h2>
+    <p>Je m'appelle Arthur Boda, j'ai 20 ans et je vis à Lyon. </p>
+      <p>Je suis passionné par les sports de combat et le développement web et d'applications. Mon rêve est de devenir développeur indépendant ou combattant professionnel.</p>
+  </div>
+
+  <div class="content">
+    <h2 class="section-title">Parcours Scolaire</h2>
+    <div class="tree">
+      <ul>
+        <li>
+          <span>Collège Saint Joseph (Bourg-en-Bresse) 2014/2019</span>
+          <ul>
+            <li>
+              <span>Lycée Carriat (Baccalauréat STMG - SIG)2019-2022</span>
+              <ul>
+                <li>
+                  <span>BTS SIO (SLAM)2023/2025</span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+
+  <div class="content skills">
+    <h2 class="section-title">Compétences & Qualités</h2>
+    <h3>Qualités :</h3>
+    <ul>
+      <li>Communication efficace</li>
+      <li>Écoute active</li>
+      <li>Gestion du temps</li>
+      <li>Adaptabilité</li>
+    </ul>
+    <h3>Compétences :</h3>
+    <ul>
+      <li>Développement web(notion de HTML-CSS-PHP)</li>
+      <li>Bases de données(notion SQL)</li>
+      <li>Systèmes d'exploitation (installation d'un os linux ou windows)</li>
+      <li>Programmation (notions avancées en python)</li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <h2 class="section-title">Qu'est-ce que le BTS SIO ?</h2>
+    <p>Le BTS Services Informatiques aux Organisations (SIO) forme les étudiants à la mise en place de solutions informatiques au sein des entreprises, couvrant des domaines tels que la programmation, la gestion de projets, et la cybersécurité.</p>
+    <div class="options">
+      <div class="option">
+        <img src="assets/img/browser.svg" alt="SLAM">
+        <h3>SLAM</h3>
+        <p>Développement de logiciels et d'applications métiers pour répondre aux besoins des entreprises.</p>
+      </div>
+      <div class="option">
+        <img src="assets/img/network.svg" alt="SISR">
+        <h3>SISR</h3>
+        <p>Gestion et maintenance des infrastructures informatiques, réseaux et systèmes d'exploitation.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <a href="assets/Arthur_Boda_CV.pdf" download class="btn">📥 Télécharger le CV</a>
+    <a href="assets/tkt" download class="btn">📥 Télécharger Tableau de Synthese</a>
+
+
+  </div>
+</div>
+
+</body>
+</html>
