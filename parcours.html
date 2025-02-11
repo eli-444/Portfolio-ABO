@@ -8,141 +8,189 @@
   <meta name="keywords" content="Arthur Boda, portfolio, développement, sports de combat, BTS SIO, SLAM, SISR">
   <link rel="stylesheet" href="assets/css/main.css">  
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background-color: #000;
-      color: #333;
-    }
-    header {
-      background: #000;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-    header img {
-      width: 100px;
-    }
-    .containero {
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-      color: #000;
-      background-color: #000;
-    }
-    .section-title {
-      text-align: center;
-      margin: 20px 0;
-      font-size: 28px;
-      color: #000;
-    }
-    .content {
-      margin: 20px 0;
-      padding: 20px;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .skills ul {
-      list-style: none;
-      padding: 0;
-    }
-    .skills ul li {
-      margin: 5px 0;
-      padding: 5px;
-      background: #e9ecef;
-      border-radius: 3px;
-    }
-    .buttons {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .btn {
-      text-decoration: none;
-      padding: 10px 20px;
-      background: #007BFF;
-      color: #fff;
-      border-radius: 5px;
-      margin: 5px;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #0056b3;
-    }
-    .options {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-    .options .option {
-      width: 45%;
-      margin: 10px;
-      background: #e9ecef;
-      padding: 15px;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .options .option img {
-      width: 100px;
-      margin-bottom: 10px;
-    }
+/* Styles généraux */
+/* Styles généraux */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.8;
+  background-color: #0d0d0d;
+  color: #bbb;
+  transition: background 0.3s ease-in-out;
+}
 
-/*chat*/
+/* Header */
+header {
+  background: linear-gradient(135deg, #000, #1a1a1a);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+header img {
+  width: 100px;
+  transition: transform 0.3s ease-in-out;
+}
+header img:hover {
+  transform: scale(1.1);
+}
 
-/*Abre pour parcours scolaire*/
+/* Conteneur principal */
+.containero {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Titres */
+.section-title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 32px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Contenu */
+.content {
+  margin: 20px 0;
+  padding: 20px;
+  background: #070707;
+  color: #bbb;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+.content:hover {
+  transform: scale(1.02);
+}
+
+/* Liste des compétences */
+.skills ul {
+  list-style: none;
+  padding: 0;
+}
+.skills ul li {
+  margin: 8px 0;
+  padding: 10px;
+  background: linear-gradient(135deg, #444, #222);
+  border-radius: 5px;
+  color: #ddd;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+.skills ul li:hover {
+  transform: translateY(-3px);
+}
+
+/* Boutons */
+.buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+.btn {
+  text-decoration: none;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #555, #222);
+  color: #fff;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn:hover {
+  background: linear-gradient(135deg, #333, #111);
+  transform: translateY(-3px);
+}
+
+/* Options */
+.options {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.options .option {
+  width: 45%;
+  margin: 10px;
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  color: #bbb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+.options .option:hover {
+  transform: scale(1.05);
+}
+.options .option img {
+  width: 100px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+.options .option img:hover {
+  transform: rotate(10deg);
+}
+
+/* Arbre de parcours scolaire */
 .tree ul {
   padding-left: 20px;
   list-style-type: none;
   position: relative;
 }
-
 .tree ul::before {
   content: '';
-  border-left: 2px solid #3d5064; /* Ligne principale de l’arbre */
+  border-left: 3px solid #666;
   position: absolute;
   top: 0;
   left: 10px;
   bottom: 0;
 }
-
 .tree li {
   margin: 10px 0;
   position: relative;
   padding-left: 30px;
 }
-
 .tree li::before {
   content: '';
-  border-top: 2px solid #3d5064; /* Ligne horizontale */
+  border-top: 3px solid #666;
   position: absolute;
   top: 10px;
   left: 0;
   width: 20px;
 }
-
 .tree li::after {
   content: '';
-  border-left: 2px solid #000000; /* Ligne verticale descendant de l'élément parent */
+  border-left: 3px solid #666;
   position: absolute;
   top: 10px;
   left: 10px;
   bottom: 0;
 }
-
 .tree li:last-child::after {
-  display: none; /* Supprime la ligne verticale du dernier élément */
+  display: none;
 }
-
 .tree span {
   display: inline-block;
-  padding: 5px 10px;
-  background: #000000;
+  padding: 10px 15px;
+  background: linear-gradient(135deg, #444, #222);
   color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   font-weight: bold;
+  transition: transform 0.3s ease-in-out;
 }
+.tree span:hover {
+  transform: scale(1.1);
+}
+
+
 
 
   </style>
@@ -154,7 +202,7 @@
   <img src="https://i.pinimg.com/originals/f6/66/3e/f6663e888b8cd07fe16f680c9a979718.jpg" alt="Logo"> 
 </a>
   <h1>Arthur Boda</h1>
-  <p>Développeur Web & Passionné de Sports de Combat</p>
+  <p>Développeur Web/App & Passionné de Sports de Combat</p>
 </header>
 
 <div class="containero">
