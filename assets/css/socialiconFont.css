@@ -1,0 +1,14 @@
+/* ======= SOCIAL ICONS ======= */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-links img {
+    transition: transform 0.3s;
+}
+
+.social-links img:hover {
+    transform: scale(1.2);
+}

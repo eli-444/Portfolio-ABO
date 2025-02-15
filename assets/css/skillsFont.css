@@ -1,0 +1,54 @@
+/* ======= SECTION COMPÉTENCES ======= */
+#skills {
+    background: #121212;
+    padding: 80px 0;
+    text-align: center;
+}
+
+#skills h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #595dff;
+}
+
+/* Conteneur des cartes */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Style des cartes */
+.skill-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Effet au survol */
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}

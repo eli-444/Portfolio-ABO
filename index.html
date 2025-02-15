@@ -1,186 +1,284 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <title>Arthur Boda</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="HTML5 website template">
-  <meta name="keywords" content="global, template, html, sass, jquery">
-  <meta name="author" content="Bucky Maler">
-  <link rel="stylesheet" href="assets/css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio personnel - Présentation, projets, veille technologique et contact">
+    <title>Portfolio Arthur Boda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+
+      <!-- IMPLEMENTATION CSS PART -->
+      <link rel="stylesheet" href="assets/css/formulaireFont.css">
+      <link rel="stylesheet" href="assets/css/navFont.css">
+      <link rel="stylesheet" href="assets/css/policeFont.css">
+      <link rel="stylesheet" href="assets/css/projectsFont.css">
+      <link rel="stylesheet" href="assets/css/sectionsFont.css">
+      <link rel="stylesheet" href="assets/css/socialiconFont.css">
+      <link rel="stylesheet" href="assets/css/aboutmeFont.css">
+      <link rel="stylesheet" href="assets/css/techwatchFont.css">
+      <link rel="stylesheet" href="assets/css/skillsFont.css">
+      <link rel="stylesheet" href="projectsPage/css/spacerFont.css">
+      <link rel="stylesheet" href="assets/css/contactFont.css">
+
+
+
+
+
+
+        <!-- IMPLEMENTATION JS -->
+        <script src="assets/js/modal.js"></script>
+        <script src="assets/js/techwatchmenu.js"></script>
 </head>
+
 <body>
-
-<!-- notification for small viewports and landscape oriented smartphones -->
-<div class="device-notification">
-  <a class="device-notification--logo" href="file:///C:/xampp/htdocs/portfolio/index.html">
-    <img src="https://i.pinimg.com/originals/f6/66/3e/f6663e888b8cd07fe16f680c9a979718.jpg" alt="Global">
-    <p>Arthur Boda</p>
-  </a>
-</div>
-
-<div class="perspective effect-rotate-left">
-  <div class="container"><div class="outer-nav--return"></div>
-    <div id="viewport" class="l-viewport">
-      <div class="l-wrapper">
-        <header class="header">
-          <a class="header--logo" href="file:///C:/xampp/htdocs/portfolio/index.html">
-            <img src="https://i.pinimg.com/originals/f6/66/3e/f6663e888b8cd07fe16f680c9a979718.jpg"  alt="Logo d'Arthur Boda" width="130" height="70">
-            <p>Arthur Boda</p>
-          </a>
-          <div class="header--nav-toggle">
-            <span></span>
-          </div>
-        </header>
-        <nav class="l-side-nav">
-          <ul class="side-nav">
-            <li class="is-active"><span>Accueil</span></li>
-            <li><span>Projets</span></li>
-            <li><span>A propos de moi</span></li>
-            <li><span>Contact</span></li>
-            <li><span>Veille Technologique</span></li>
-          </ul>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">Arthur Boda</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about-me">À propos de moi</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#techwatch">Veille technologique</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
-        <ul class="l-main-content main-content">
-          <li class="l-section section section--is-active">
-            <div class="intro">
-              <div class="intro--banner">
-                <h1>Portfolio<br>Arthur<br>Boda</h1>
+    </header>
+    
+    <main>
+        <section id="about-me">
+            <div class="space2">
+            <div class="about-container">
+                <div class="about-text">
+                    <h1>Bonjour, je m'appelle <span class="highlight">Arthur Boda</span></h1>
+                    <p>J'ai actuellement 20 ans et je suis  étudiant en développement informatique d'application solution métier et application web</p>
+                    <p>Passionné par l'informatique et les nouvelles technologies, j'ai acquis de nombreuses compétences et connaissances dans divers domaines.</p>
+                    <p>Je suis ravi de partager mes travaux réalisés dans le cadre de mes études et de ma carrière professionnelle sur cette page.</p>
+                    <ul>
+                        <li><p style="color: aliceblue;">Situation:</p><i class="icon-briefcase"></i>Développeur et Intégrateur d'application de supervision en Alternance  </li>
 
-                <img src="assets/img/introduction-visual.png" alt="Welcome">
-              </div>
-             
-            </div>
-          </li>
-          <li class="l-section section">
-            <div class="work">
-              <h2>Selectionner un projet</h2>
-              <div class="work--lockup">
-                <ul class="slider">
-                  <li class="slider--item slider--item-left">
-                    <a href="goku.html">
-                      <div class="slider--item-image">
+                        <li><p style="color: aliceblue;"> Mail: </p><i class="icon-email"></i>arthur.boda@outlook.fr</li>
                         
-                        <img src="assets/img/gokucell.jpg" alt="Victory">
-                        
-                      </div>
-                      <p class="slider--item-title">Goku vs Cell</p>
-                      <p class="slider--item-description">Jeu vidéo 2D où l'on incarne Kakarot de la saga culte Dargon Ball Z</p>
-                  </a>
-                  </li>
-                  <li class="slider--item slider--item-center">
-                    <a href="neith.html">
-                      <div class="slider--item-image">
-                        <img src="assets/img/neith.jfif" alt="Metiew and Smith">
-                      </div>
-                      <p class="slider--item-title">Neith</p>
-                      <p class="slider--item-description">Bot Discord développé en Python qui a des fonctionnalités de modération et de Trading&Invest News </p>
-                    </a>
-                  </li>
-                  <li class="slider--item slider--item-right">
-                    <a href="FC.html">
-                      <div class="slider--item-image">
-                        <img src="assets/img/fcneutre.png" alt="Alex Nowak">
-                      </div>
-                      <p class="slider--item-title">Feuille de Calcul</p>
-                      <p class="slider--item-description">Creation d'un tableau pour des calculs d'automates</p>
-                    </a>
-                  </li>
-                  <li class="slider--item ">
-                    <a href="gsb.html">
-                      <div class="slider--item-image">
-                        <img src="assets/img/gsb.png" alt="Metiew and Smith">
-                      </div>
-                      <p class="slider--item-title">GSB</p>
-                      <p class="slider--item-description">Developpement de l'application web du cas Galaxy Swiss Bourdin </p>
-                    </a>
-                  </li>
-                </ul>
-                <div class="slider--prev">
-                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                  viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
-                  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
-                    <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29
-                    c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
-                    c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z"/>
-                  </g>
-                  </svg>
+                        <li><p style="color: aliceblue;"> Localisation: </p><i class="icon-location"></i> Villeurbanne, France</li>
+                    </ul>
                 </div>
-                <div class="slider--next">
-                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
-                  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
-                    <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
-                  </g>
-                  </svg>
+                <div class="about-image">
+                    <img src="assets/img/introduction-visual.png" alt="Photo de Prénom NOM">
                 </div>
-              </div>
             </div>
-          </li>
-          <li class="l-section section">
-            <div class="about">
-              <div class="about--banner">
-                <h2>A propos de<br>moi</h2>
-                <a href="parcours.html">Parcours
-                  <span>
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
-                    <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
-                      <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
-                    </g>
-                    </svg>
-                  </span>
-                </a>
-               
-              </div>
-             
-            </div>
-          </li>
-          <li class="l-section section">
-            <div class="contact">
-              <div class="contact--lockup">
-                <div class="modal">
-                  <div class="modal--information">
-                    <p>Lyon, France</p>
-                    <a href="mailto:ouremail@gmail.com">arthur.boda@outlook.fr</a>
-                    <a href="tel:+148126287560">+70 74 22 45 06</a>
-                  </div>
-                  <ul class="modal--options">
-                    <li><a href="https://www.instagram.com/rrthur_444/"target="_blank">Instagram</a></li>
-                    <li><a href="https://www.linkedin.com/in/arthur-boda-b15299239"target="_blank">Linkedin</a></li>
-                    <li><a href="mailto:ouremail@gmail.com">Me contacter</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="l-section section">
-            <div class="hire">
-              <a href="VT.html">
-                <img src="assets/img/vt.png" alt="Victory" width="700px">
+            <div class="cv-container">
+                <p>Documents :</p>
+                <a href="assets/srcfile/cv.pdf" download >
+                <button class="cv-button">Télécharger CV</button>
             </a>
-              
-                </div>
-                <input type="submit" value="Send Request">
-              </form>
+                <button class="contact-button">Tableau de synthèse</button>
             </div>
-          </li>
-          
-        </ul>
-      </div>
-    </div>
-  </div>
-  <ul class="outer-nav">
-  <li class="is-active">Accueil</li>
-    <li>Projets</li>
-    <li>A propos de moi</li>
-    <li>Contact</li>
-    <li>Veille Technologique</li>
-  </ul>
-</div>
+        </section>
+        
+        <section id="projects">
+            <div class="work">
+                <h2>Sélectionner un projet</h2>
+                <div class="work--lockup">
+                    <!-- Flèche gauche -->
+                    <button class="slider--prev">&#9665;</button>        
+        
+                    <!-- SLIDER PRINCIPAL -->
+                    <ul class="slider">
+                        <li class="slider--item slider--item-center">
+                            <a href="projectsPage/osher.html" class="project-link">
+                                <div class="slider--item-image">
+                                    <img src="assets/img/neith.jfif" alt="Projet 1">
+                                </div>
+                                <p class="slider--item-title">Osher</p>
+                            </a>
+                        </li>
+                        <li class="slider--item slider--item-right">
+                            <a href="projectsPage/tensen.html"  class="project-link">
+                                <div class="slider--item-image">
+                                    <img src="assets/img/tensen.jpg" alt="Projet 2">
+                                </div>
+                                <p class="slider--item-title">Tensen</p>
+                            </a>
+                        </li>
+                        <li class="slider--item slider--item-left">
+                            <a href="projectsPage/kira.html"  class="project-link">
+                                <div class="slider--item-image">
+                                    <img src="assets/img/kira.png" alt="Projet 3">
+                                </div>
+                                <p class="slider--item-title">Kira</p>
+                            </a>
+                        </li>
+                        <li class="slider--item slider--item-left">
+                            <a href="projectsPage/gsb.html"  class="project-link">
+                                <div class="slider--item-image">
+                                    <img src="assets/img/gsb.png" alt="Projet 3">
+                                </div>
+                                <p class="slider--item-title">GSB</p>
+                            </a>
+                        </li>
+                    </ul>
+        
+                    <!-- Flèche droite -->
+                    <button class="slider--next">&#9655;</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <div class="space2">
+            <h1>Mes Compétences</h1>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <img src="assets/img/htmllogo.png" alt="HTML5">
+                    <p>HTML5</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/csslogo.png" alt="CSS3">
+                    <p>CSS3</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/javascriptlogo.png" alt="JavaScript">
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/pythonlogo.png" alt="JavaScript">
+                    <p>Python</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/javalogo.png" alt="Java">
+                    <p>Java</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/chsarplogo.png" alt="Java">
+                    <p>C#</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/phplogo.png" alt="PHP">
+                    <p>PHP</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/sqllogo.png" alt="MySQL">
+                    <p>MySQL</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/batchlogo.png" alt="Windows">
+                    <p>Batch</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/phpmyamdinlogo.png" alt="PhpMyAdmin">
+                    <p>PhpMyAdmin</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/vscodelogo.png" alt="VsCode">
+                    <p>VsCode</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/gitlogo.png" alt="Git">
+                    <p>Git</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/kalilogo.png" alt="Linux">
+                    <p>Kali Linux</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/windowslogo.png" alt="Windows">
+                    <p>Windows</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/gsuitelogo.png" alt="Google Suite">
+                    <p>Google Suite</p>
+                </div>
+                <div class="skill-card">
+                    <img src="assets/img/canvalogo.png" alt="Canva">
+                    <p>Canva</p>
+                </div>
+            </div>
+        </section>
+        
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
-<script src="assets/js/functions-min.js"></script>
 
+
+        <div class="space4">
+        <section id="techwatch">
+            <h1>Veille technologique</h1>
+            <p>Dernières découvertes, tendances technologiques, articles et recherches sur le <b>MACHINE LEARNING</b>.</p>
+            
+            <!-- Bouton de déroulement -->
+            <button class="toggle-btn">▼</button>
+        
+            <!-- Contenu de la veille (initialement caché) -->
+            <div class="tech-content">
+                <h2>Machine Learning</h2>
+                <br>
+                <h3>Définition</h3>
+                <p>
+                    L'apprentissage automatique (machine learning) est une branche de l'intelligence artificielle
+                    qui repose sur des méthodes mathématiques et statistiques. Son objectif est de permettre aux
+                    ordinateurs d'« apprendre » à partir de données, améliorant ainsi leurs performances sans être
+                    explicitement programmés pour chaque tâche.
+                </p>
+                <br>
+                <h3>Comment fonctionne le Machine Learning ?</h3>
+                <p>
+                    Le machine learning fonctionne en collectant d'abord des données brutes (images, sons, textes...).
+                    Ensuite, ces données sont classées pour obtenir des résultats pertinents. Des outils comme CoreML
+                    (Apple) et TensorFlow sont utilisés pour entraîner les modèles d'apprentissage, qui peuvent être
+                    intégrés dans des applications et améliorés au fil de leur utilisation.
+                </p>
+                <br>
+                <h3>À quoi sert le Machine Learning ?</h3>
+                <p>
+                    Le machine learning permet notamment la reconnaissance d’images, la reconnaissance vocale
+                    (Shazam, Siri, Google Assistant), ainsi que l'analyse et la classification automatique de données.
+                </p>
+                <br>
+                <h3>Applications courantes</h3>
+                <ul>
+                    <li>Vision par ordinateur (reconnaissance faciale, analyse d'images et vidéos)</li>
+                    <li>Reconnaissance de caractères manuscrits (OCR, codes postaux...)</li>
+                    <li>Détection de fraudes bancaires</li>
+                    <li>Prédiction des marchés financiers</li>
+                    <li>Jeu vidéo et intelligence artificielle (AlphaGo, Deep Blue...)</li>
+                    <li>Robotique et assistance médicale</li>
+                </ul>
+                <br>
+                <h3>Acteurs clés</h3>
+                <p>
+                    Arthur Samuel est un pionnier du machine learning, ayant développé en 1952 un programme de
+                    jeu de dames qui apprenait en jouant. IBM Deep Blue a marqué un tournant en battant Garry
+                    Kasparov aux échecs en 1997, suivi de Google DeepMind avec AlphaGo.
+                </p>
+                <br>
+                <h3>Ressources</h3>
+                <ul>
+                    <li><a href="https://datascientest.com/machine-learning-toutsavoir" target="_blank">Datascientest - Tout savoir sur le Machine Learning</a></li>
+                    <li><a href="https://ia-data-analytics.fr/machine-learning/" target="_blank">IA Data Analytics - Machine Learning</a></li>
+                    <li><a href="https://fr.wikipedia.org/wiki/Apprentissage_automatique" target="_blank">Wikipédia - Apprentissage automatique</a></li>
+                    <li><a href="https://www.lebigdata.fr/machine-learning-et-big-data" target="_blank">Le Big Data - Machine Learning et Big Data</a></li>
+                </ul>
+            </div>
+        </section>
+        
+        <div class="space2">
+        <section id="contact">
+            <h2>Me contacter</h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/arthur-boda-b15299239/" target="_blank">
+                    <img src="assets/img/linkedinlogo.png" alt="LinkedIn" width="70">
+                </a>
+                <a href="https://github.com/Neyth444" target="_blank">
+                    <img src="assets/img/github.png" alt="GitHub" width="40">
+                </a>
+            </div>
+        </section>
+        
+    </main>
 </body>
+<footer>
+    <p>&copy; 2025  Arthur Boda. All Rights Reserved.</p>
+</footer>
 </html>

@@ -1,0 +1,39 @@
+/* ======= GÉNÉRAL ======= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #121212;
+    color: #ffffff;
+}
+
+
+
+.fixed-background {
+    background:#121212;
+    background-size: contain; /* Pour s'assurer que l'image prend toute la page */
+    background-attachment: fixed; /* Image fixe */
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: 'Courier New', monospace;
+    text-shadow: 2px 2px 0 black;
+    position: relative;
+}
+
+.fixed-background2 {
+    background:#121212;
+    background-size: contain; /* Pour s'assurer que l'image prend toute la page */
+    background-attachment: fixed; /* Image fixe */
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: 'Courier New', monospace;
+    text-shadow: 2px 2px 0 black;
+    position: relative;
+}

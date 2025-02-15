@@ -1,0 +1,58 @@
+/* Section Skills */
+#skills {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 900px;
+}
+
+/* Conteneur des compétences en grille */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Style pour chaque skill */
+.skill {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Logos des langages */
+.skill img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Info + Progression */
+.skill-info {
+    flex-grow: 1;
+}
+
+/* Barre de progression */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #ffffff; /* Couleur bleue */
+    width: 0%;
+    transition: width 1s ease-in-out;
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 600px) {
+    .skills-container {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    }
+}

@@ -1,0 +1,24 @@
+/* ======= FORMULAIRE ======= */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+input, textarea {
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+
+/* ======= BOUTONS ======= */
+.cv-button, .contact-button {
+    background: #2563EB;
+    color: white;
+}
+
+.cv-button:hover, .contact-button:hover {
+    background: #1E40AF;
+}
