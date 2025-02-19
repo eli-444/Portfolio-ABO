@@ -31,7 +31,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .skill-card img {
@@ -45,10 +47,35 @@
     font-size: 1rem;
     font-weight: 600;
     color: #333;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+/* Barre de progression */
+.skill-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #595dff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Effet au survol */
 .skill-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.skill-card:hover p {
+    color: white;
+}
+
+.skill-card:hover::after {
+    transform: scaleX(1);
 }
