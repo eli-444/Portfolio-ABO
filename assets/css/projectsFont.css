@@ -2,6 +2,13 @@
    CARROUSEL DE PROJETS
    =============================== */
 
+
+#projects h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #595dff;
+}
    .work {
     position: relative;
     display: flex;

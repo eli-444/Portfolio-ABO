@@ -1,0 +1,97 @@
+/* ======= SECTION PARCOURS ======= */
+
+#parcours {
+    background: #121212;
+    padding: 80px 0;
+    text-align: center;
+}
+
+#parcours h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #595dff;
+}
+
+
+
+
+* {
+     box-sizing: border-box; 
+    }
+
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 90px 60px;
+  background: #121212;
+}
+
+.timeline:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 50%;
+    width: 8px;
+    background: #595dff;
+    border-radius: 3px;
+    z-index: 1;
+  }
+
+  .timeline article {
+    position: relative;
+    background: #121212;
+    width: calc(50% - 40px);
+    padding: 15px
+
+  }
+
+  .timeline article + article {
+    margin-top: 20px;
+
+  }
+
+  .timeline article:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: calc(100% + 26px);
+    background: #ffffff;
+    width: 24px;
+    height: 24px;
+    border: 6px #595dff solid;
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  .timeline article:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-left: 16px solid#595dff;
+    border-bottom: 20px solid transparent;
+  }
+
+  .timeline article:nth-child(even) {
+    margin-left: calc( 50% + 48px );
+  }
+
+  .timeline article:nth-child(even):before {
+    left: auto;
+    right:calc(100% + 26px)
+  }
+
+  .timeline article:nth-child(even):after {
+    left:auto;
+    right: 100%;
+    border-left: none;
+    border-right: 16px solid #595dff;
+  }
