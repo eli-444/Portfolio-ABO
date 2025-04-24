@@ -113,3 +113,16 @@
     background: #1E40AF;
     transform: scale(1.1);
 }
+
+
+@media (max-width: 768px) {
+    .about-container, .contact-container, .tech-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .about-text, .contact-text, .tech-text {
+      padding: 0;
+    }
+  }
+  

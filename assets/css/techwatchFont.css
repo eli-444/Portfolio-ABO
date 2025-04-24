@@ -53,3 +53,16 @@
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.1);
 }
+
+@media (max-width: 768px) {
+    #techwatch {
+      padding: 50px 20px;
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .tech-content.active {
+      max-height: 400px;
+    }
+  }
+  

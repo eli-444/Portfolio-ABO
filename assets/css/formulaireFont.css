@@ -22,3 +22,16 @@ input, textarea {
 .cv-button:hover, .contact-button:hover {
     background: #1E40AF;
 }
+
+
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  input, textarea {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  

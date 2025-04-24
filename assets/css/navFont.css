@@ -35,3 +35,22 @@ nav {
 .nav-links li a:hover {
     color: #00D4FF;
 }
+
+@media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.95);
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  }
+  
