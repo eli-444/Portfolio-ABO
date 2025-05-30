@@ -116,13 +116,62 @@
 
 
 @media (max-width: 768px) {
-    .about-container, .contact-container, .tech-container {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .about-text, .contact-text, .tech-text {
-      padding: 0;
-    }
+  .about-container, .contact-container, .tech-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
   }
-  
+
+  .about-text, .contact-text, .tech-text {
+    padding: 0 10px;
+  }
+
+  .about-text h1, .contact-text h1, .tech-text h1 {
+    font-size: 2rem;
+  }
+
+  .about-text p, .contact-text p, .tech-text p,
+  .about-text li, .contact-text li, .tech-text li {
+    font-size: 1rem;
+  }
+
+  .about-image img, .contact-image img, .tech-image img {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .cv-container {
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 20px;
+  }
+
+  .cv-container p {
+    font-size: 1.2rem;
+  }
+
+  .cv-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cv-button, .contact-button {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-text h1, .contact-text h1, .tech-text h1 {
+    font-size: 1.7rem;
+  }
+
+  .cv-container p {
+    font-size: 1rem;
+  }
+
+  .cv-button, .contact-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}

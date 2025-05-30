@@ -12,3 +12,26 @@
 .social-links img:hover {
     transform: scale(1.2);
 }
+@media (max-width: 768px) {
+  .social-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .social-links img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    gap: 10px;
+  }
+
+  .social-links img {
+    width: 26px;
+    height: 26px;
+  }
+}

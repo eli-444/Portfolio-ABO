@@ -34,4 +34,32 @@ form {
     width: 100%;
     margin-bottom: 10px;
   }
-  
+  @media (max-width: 768px) {
+  form {
+    padding: 15px;
+    width: 90%;
+  }
+
+  input, textarea {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .cv-button, .contact-button {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  input, textarea {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .cv-button, .contact-button {
+    font-size: 1rem;
+    padding: 8px 0;
+  }
+}

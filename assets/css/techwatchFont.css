@@ -65,4 +65,23 @@
       max-height: 400px;
     }
   }
-  
+  @media (max-width: 480px) {
+  #techwatch {
+    padding: 40px 15px;
+    border-radius: 10px;
+  }
+
+  #techwatch h1 {
+    font-size: 1.7rem;
+  }
+
+  .toggle-btn {
+    font-size: 1.5rem;
+  }
+
+  .tech-content.active {
+    max-height: 300px;
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}

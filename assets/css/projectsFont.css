@@ -208,3 +208,51 @@
         display: none;
     }
 }
+@media (max-width: 480px) {
+  #projects h1 {
+    font-size: 1.8rem;
+  }
+
+  .work h2 {
+    font-size: 1.2rem;
+  }
+
+  .slider {
+    padding: 60px 10px;
+  }
+
+  .slider--item-center {
+    transform: scale(1.2);
+  }
+
+  .slider--item-center .slider--item-title {
+    font-size: 14px;
+  }
+
+  .slider--item-center .slider--item-description {
+    font-size: 0.85rem;
+    padding: 0 10px;
+  }
+
+  .slider--item-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .slider--item-center .slider--item-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .slider--prev,
+  .slider--next {
+    width: 40px;
+    height: 40px;
+    top: 100px;
+  }
+
+  .slider--prev svg,
+  .slider--next svg {
+    width: 16px;
+  }
+}

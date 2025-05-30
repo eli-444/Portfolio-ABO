@@ -95,3 +95,33 @@
     border-left: none;
     border-right: 16px solid #595dff;
   }
+  @media (max-width: 768px) {
+  .timeline {
+    padding: 50px 20px;
+  }
+
+  .timeline:after {
+    left: 8px;
+    width: 4px;
+  }
+
+  .timeline article,
+  .timeline article:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 40px;
+    padding-right: 10px;
+  }
+
+  .timeline article:before,
+  .timeline article:nth-child(even):before {
+    left: 0;
+    right: auto;
+    top: 0;
+  }
+
+  .timeline article:after,
+  .timeline article:nth-child(even):after {
+    display: none;
+  }
+}
