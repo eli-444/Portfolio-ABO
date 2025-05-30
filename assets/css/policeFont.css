@@ -29,9 +29,9 @@ footer p {
 }
 
 html {
-    font-size: 100%;
-  }
-  
+  font-size: clamp(14px, 1.5vw, 16px);
+}
+
   @media (max-width: 768px) {
     html {
       font-size: 90%;
@@ -44,3 +44,16 @@ html {
     }
   }
   
+@media (max-width: 768px) {
+  footer {
+    padding: 20px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}

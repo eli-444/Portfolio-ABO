@@ -22,3 +22,22 @@ h1 {
     color: #4973b8;
     text-shadow: 0 0 10px rgba(70, 70, 70, 0.3);
 }
+@media (max-width: 768px) {
+  section {
+    padding: 60px 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 40px 15px;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+}

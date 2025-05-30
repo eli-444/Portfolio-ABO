@@ -79,3 +79,54 @@
 .skill-card:hover::after {
     transform: scaleX(1);
 }
+@media (max-width: 768px) {
+  #skills {
+    padding: 60px 20px;
+  }
+
+  #skills h1 {
+    font-size: 2rem;
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+  }
+
+  .skill-card {
+    padding: 15px;
+  }
+
+  .skill-card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .skill-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #skills h1 {
+    font-size: 1.7rem;
+  }
+
+  .skills-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .skill-card {
+    padding: 12px;
+  }
+
+  .skill-card img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .skill-card p {
+    font-size: 0.85rem;
+  }
+}

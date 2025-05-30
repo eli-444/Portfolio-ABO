@@ -50,3 +50,49 @@
 .contact-table tr:last-child td {
     border-bottom: none;
 }
+@media (max-width: 768px) {
+  #contact {
+    padding: 40px 15px;
+    max-width: 100%;
+  }
+
+  #contact h1 {
+    font-size: 2rem;
+  }
+
+  .contact-table {
+    font-size: 0.95rem;
+  }
+
+  .contact-table td {
+    padding: 10px 5px;
+  }
+
+  .contact-table a {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .contact-table img {
+    width: 30px;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact h1 {
+    font-size: 1.7rem;
+  }
+
+  .contact-table {
+    font-size: 0.85rem;
+  }
+
+  .contact-table td {
+    padding: 8px 3px;
+  }
+
+  .contact-table img {
+    width: 24px;
+  }
+}
