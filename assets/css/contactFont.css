@@ -52,8 +52,10 @@
 }
 @media (max-width: 768px) {
   #contact {
-    padding: 40px 15px;
-    max-width: 100%;
+    padding: 40px 10px; /* réduit le padding horizontal */
+    max-width: 100vw;   /* prend toute la largeur de l'écran */
+    margin: 0 auto;     /* centre la section */
+    box-sizing: border-box; /* inclut le padding dans la largeur */
   }
 
   #contact h1 {
@@ -80,6 +82,13 @@
 }
 
 @media (max-width: 480px) {
+  #contact {
+    padding: 20px 5px;  /* réduit encore le padding */
+    max-width: 100vw;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
   #contact h1 {
     font-size: 1.7rem;
   }

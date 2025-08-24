@@ -34,7 +34,7 @@
     transform: rotate(180deg);
 }
 
-/* Ajout du scroll pour la section déroulante */
+
 .tech-content {
     max-height: 0;
     overflow: hidden;
@@ -43,7 +43,7 @@
 }
 
 .tech-content.active {
-    max-height: 600px; /* Ajustable selon le contenu */
+    max-height: 600px; 
     opacity: 1;
     padding-top: 15px;
     overflow-y: auto;
@@ -54,34 +54,46 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
+
 @media (max-width: 768px) {
-    #techwatch {
-      padding: 50px 20px;
-      max-width: 100%;
-      height: auto;
-    }
-  
-    .tech-content.active {
-      max-height: 400px;
-    }
+  #techwatch {
+    padding: 50px 20px;
   }
-  @media (max-width: 480px) {
+
+
+  .tech-content,
+  .tech-content.active {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 40px;
+    padding-right: 10px;
+  }
+
+  #techwatch::after {
+    left: 8px;
+    width: 4px;
+  }
+  .tech-content::before {
+    left: 0;
+    right: auto;
+    top: 0;
+  }
+  .tech-content::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
   #techwatch {
     padding: 40px 15px;
     border-radius: 10px;
   }
-
-  #techwatch h1 {
-    font-size: 1.7rem;
-  }
-
-  .toggle-btn {
-    font-size: 1.5rem;
-  }
-
+  #techwatch h1 { font-size: 1.7rem; }
+  .toggle-btn { font-size: 1.5rem; }
   .tech-content.active {
     max-height: 300px;
     font-size: 0.9rem;
-    padding: 8px;
+    padding-left: 30px; 
+    padding-right: 8px;
   }
-}
+} 
