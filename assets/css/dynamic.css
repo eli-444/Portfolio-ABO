@@ -1,0 +1,479 @@
+
+/* =======================================================
+   Dynamic CSS Theme for Arthur Boda — Aurora Portfolio
+   - Coherent with sections/IDs in the provided index.html
+   - Aurora background, glass UI, reveal animations, carousel
+   - Light/Dark themes via [data-theme] and system preference
+   ======================================================= */
+
+/* ---------- CSS Reset (modern minimal) ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+:where(html) {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+:where(body, h1, h2, h3, h4, h5, p, ul, ol, li, figure, img) {
+  margin: 0;
+  padding: 0;
+}
+:where(ul, ol) { list-style: none; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { border: none; background: none; cursor: pointer; }
+:where(input, button, textarea, select) { font: inherit; color: inherit; }
+:root { color-scheme: light dark; }
+
+/* ---------- Theme Variables ---------- */
+:root {
+  --bg: #0b1020;
+  --bg-soft: #121933;
+  --surface: rgba(255,255,255,0.08);
+  --text: #e6e8ff;
+  --muted: #a7b0d6;
+  --primary: #7aa2ff;
+  --primary-2: #a78bfa;
+  --accent: #60a5fa;
+  --accent-2: #93c5fd;
+  --ok: #34d399;
+  --warn: #fbbf24;
+  --danger: #f87171;
+
+  /* Aurora layers */
+  --aurora: repeating-linear-gradient(100deg,#3b82f6 10%,#a5b4fc 15%,#93c5fd 20%,#ddd6fe 25%,#60a5fa 30%);
+  --white-gradient: repeating-linear-gradient(100deg,#fff 0%,#fff 7%,transparent 10%,transparent 12%,#fff 16%);
+  --dark-gradient: repeating-linear-gradient(100deg,#000 0%,#000 7%,transparent 10%,transparent 12%,#000 16%);
+
+  --blur: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --shadow-hard: 0 30px 80px rgba(0, 0, 0, 0.45);
+
+  --content-w: 1200px;
+  --section-py: clamp(56px, 7vw, 120px);
+  --gutter: clamp(16px, 3.5vw, 40px);
+
+  /* Aurora motion position (updated by JS for subtle parallax) */
+  --aurora-x: 50%;
+  --aurora-y: 50%;
+}
+
+/* Light theme override */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f8fe;
+    --bg-soft: #eef1ff;
+    --surface: rgba(0,0,0,0.06);
+    --text: #0b0f1a;
+    --muted: #475569;
+    --primary: #3b82f6;
+    --primary-2: #7c3aed;
+    --accent: #2563eb;
+    --accent-2: #60a5fa;
+  }
+}
+[data-theme="dark"] {
+  --bg: #0b1020;
+  --bg-soft: #121933;
+  --surface: rgba(255,255,255,0.08);
+  --text: #e6e8ff;
+  --muted: #a7b0d6;
+}
+[data-theme="light"] {
+  --bg: #f7f8fe;
+  --bg-soft: #eef1ff;
+  --surface: rgba(0,0,0,0.06);
+  --text: #0b0f1a;
+  --muted: #475569;
+}
+
+/* ---------- Base ---------- */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  line-height: 1.6;
+}
+main { display: block; }
+.container {
+  width: min(100% - 2*var(--gutter), var(--content-w));
+  margin-inline: auto;
+}
+.section {
+  padding-block: var(--section-py);
+}
+
+/* ---------- Aurora Background Layer ---------- */
+.aurora-bg {
+  position: relative;
+  isolation: isolate;
+  background: radial-gradient(1200px 800px at var(--aurora-x) var(--aurora-y), rgba(96,165,250,0.12), transparent 60%),
+              radial-gradient(1000px 600px at calc(100% - 20%) 20%, rgba(167,139,250,0.10), transparent 60%),
+              var(--bg);
+  overflow-x: clip;
+}
+.aurora-bg::before,
+.aurora-bg::after {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  z-index: -2;
+  pointer-events: none;
+  filter: blur(10px);
+  background-image: var(--white-gradient), var(--aurora);
+  background-size: 300%, 200%;
+  background-position: 50% 50%, var(--aurora-x) var(--aurora-y);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  animation: auroraShift 60s linear infinite;
+}
+@media (prefers-color-scheme: dark) {
+  .aurora-bg::before,
+  .aurora-bg::after {
+    background-image: var(--dark-gradient), var(--aurora);
+    mix-blend-mode: lighten;
+  }
+}
+@keyframes auroraShift {
+  0%   { background-position: 50% 50%, 30% 40%; }
+  50%  { background-position: 20% 80%, 70% 60%; }
+  100% { background-position: 50% 50%, 30% 40%; }
+}
+
+/* ---------- Header / Nav ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  background: color-mix(in oklab, var(--bg) 75%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  transition: background 300ms ease, border-color 300ms ease, transform 300ms ease;
+}
+header.scrolled {
+  background: color-mix(in oklab, var(--bg) 85%, transparent);
+  transform: translateY(-2px);
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 12px;
+  width: min(100% - 2*var(--gutter), var(--content-w));
+  margin-inline: auto;
+}
+.logo a {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  font-size: clamp(18px, 2.4vw, 22px);
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.nav-links a {
+  color: var(--muted);
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: color 200ms ease, background 200ms ease;
+}
+.nav-links a:hover {
+  color: var(--text);
+  background: color-mix(in oklab, var(--surface) 40%, transparent);
+}
+
+/* ---------- Hero / About ---------- */
+#about-me .about-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(18px, 4vw, 40px);
+  align-items: center;
+}
+@media (max-width: 900px) {
+  #about-me .about-container { grid-template-columns: 1fr; }
+}
+#about-me .about-text h1 {
+  font-size: clamp(28px, 4.5vw, 48px);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.highlight {
+  background: linear-gradient(90deg, var(--accent), var(--primary-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+#about-me p { color: var(--muted); margin-top: 8px; }
+#about-me ul {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+#about-me li {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+#about-me .about-image {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-hard);
+  transform: translateZ(0);
+}
+#about-me .cv-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+.btn {
+  --btn-bg: color-mix(in oklab, var(--surface) 60%, transparent);
+  --btn-fg: var(--text);
+  --btn-ring: color-mix(in oklab, var(--primary) 30%, transparent);
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  backdrop-filter: blur(calc(var(--blur) * 0.5));
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--primary) 40%, transparent);
+  box-shadow: 0 8px 30px color-mix(in oklab, var(--primary) 20%, transparent);
+}
+.btn.primary {
+  --btn-bg: linear-gradient(90deg, color-mix(in oklab, var(--primary) 85%, transparent), color-mix(in oklab, var(--primary-2) 85%, transparent));
+  --btn-fg: white;
+}
+
+/* Map existing class names to .btn (drop-in) */
+.cv-button, .contact-button { composes: btn from none; }
+.cv-button { composes: primary from none; }
+
+/* ---------- Timeline / Parcours ---------- */
+#parcours .timeline {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+}
+#parcours article {
+  padding: 18px;
+  border-radius: var(--radius-xl);
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  box-shadow: var(--shadow-soft);
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+#parcours article:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--primary) 30%, transparent);
+}
+#parcours h1 { margin-bottom: 12px; }
+
+/* ---------- Skills Grid ---------- */
+#skills .skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+.skill-card {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 18px;
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  will-change: transform;
+}
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  border-color: color-mix(in oklab, var(--primary) 30%, transparent);
+  box-shadow: 0 20px 50px color-mix(in oklab, var(--accent) 15%, transparent);
+}
+.skill-card img {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+}
+
+/* ---------- Projects — Apple-like Carousel ---------- */
+#projects .work {
+  display: grid;
+  gap: 16px;
+}
+#projects h1 { margin-bottom: 6px; }
+
+/* Hide the old arrows text but keep accessible */
+.slider--prev,
+.slider--next {
+  position: relative;
+  z-index: 4;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+.slider--prev:hover,
+.slider--next:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--primary) 30%, transparent);
+}
+
+/* New carousel container style matching your existing markup */
+.work--lockup {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.slider {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  margin: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+.slider::-webkit-scrollbar { display: none; }
+
+.slider--item {
+  position: relative;
+  flex: 0 0 clamp(260px, 32vw, 380px);
+  height: clamp(360px, 42vw, 560px);
+  border-radius: 28px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  transition: transform 350ms ease, box-shadow 350ms ease, border-color 300ms ease, opacity 300ms ease;
+  will-change: transform;
+}
+.slider--item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  filter: saturate(1.05) contrast(1.02);
+}
+.slider--item .slider--item-title {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* Scale cards relative to center (CSS only approximation, JS improves further) */
+.slider:has(.slider--item:hover) .slider--item:not(:hover) {
+  opacity: 0.8;
+  transform: scale(0.96);
+}
+.slider--item:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: color-mix(in oklab, var(--primary) 30%, transparent);
+  box-shadow: 0 30px 90px color-mix(in oklab, var(--accent) 18%, transparent);
+}
+
+/* Edge gradient masks */
+.slider-mask {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mask: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* ---------- Techwatch (collapsible) ---------- */
+#techwatch .toggle-btn {
+  margin-top: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+}
+#techwatch .tech-content {
+  overflow: clip;
+  max-height: 0;
+  transition: max-height 450ms ease;
+}
+#techwatch .tech-content.open { max-height: 2000px; }
+
+/* ---------- Contact ---------- */
+#contact .social-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+#contact img {
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,0.25));
+  transition: transform 200ms ease;
+}
+#contact img:hover { transform: translateY(-4px) scale(1.035); }
+
+/* ---------- Footer ---------- */
+footer {
+  margin-top: 60px;
+  opacity: 0.8;
+  text-align: center;
+  padding: 24px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* ---------- Reveal on Scroll ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 500ms ease, transform 600ms cubic-bezier(.2,.8,.2,1);
+  will-change: opacity, transform;
+}
+[data-reveal].reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Utilities ---------- */
+.space2 { margin-top: 16px; }
+.space4 { margin-top: 24px; }
+.lead { color: var(--muted); }
+.grid { display: grid; gap: 12px; }
+.hidden { display: none !important; }
+
+/* ---------- Selection ---------- */
+::selection {
+  background: color-mix(in oklab, var(--primary) 35%, transparent);
+  color: white;
+}

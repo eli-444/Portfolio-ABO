@@ -1,0 +1,197 @@
+
+/* =======================================================
+   Dynamic Projects Facade — Aurora Variants per Page
+   - Light/Dark themes
+   - Aurora animated background with per-page palette
+   - Subtle scroll-reveal & theme toggle compatibility
+   ======================================================= */
+
+/* Reset & base */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body, h1, h2, h3, h4, p, ul, ol { margin: 0; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+:root { color-scheme: light dark; }
+
+/* Theme tokens */
+:root {
+  --bg: #0b1020;
+  --surface: rgba(255,255,255,0.08);
+  --text: #e6e8ff;
+  --muted: #a7b0d6;
+  --accent: #7aa2ff;
+  --accent-2: #60a5fa;
+
+  --white-gradient: repeating-linear-gradient(100deg,#fff 0%,#fff 7%,transparent 10%,transparent 12%,#fff 16%);
+  --dark-gradient: repeating-linear-gradient(100deg,#000 0%,#000 7%,transparent 10%,transparent 12%,#000 16%);
+
+  --blur: 20px;
+  --radius: 22px;
+  --shadow: 0 20px 60px rgba(0,0,0,0.35);
+
+  --aurora-x: 50%;
+  --aurora-y: 50%;
+
+  /* Fallback aurora */
+  --aurora: repeating-linear-gradient(100deg,#2563eb 10%,#60a5fa 15%,#93c5fd 20%,#a5b4fc 25%,#38bdf8 30%);
+}
+
+/* Light override */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f8fe;
+    --surface: rgba(0,0,0,0.06);
+    --text: #0b0f1a;
+    --muted: #475569;
+    --accent: #3b82f6;
+    --accent-2: #7c3aed;
+  }
+}
+[data-theme="dark"] {
+  --bg: #0b1020;
+  --surface: rgba(255,255,255,0.08);
+  --text: #e6e8ff;
+  --muted: #a7b0d6;
+}
+[data-theme="light"] {
+  --bg: #f7f8fe;
+  --surface: rgba(0,0,0,0.06);
+  --text: #0b0f1a;
+  --muted: #475569;
+}
+
+/* Per-page aurora palettes (set with body[data-aurora="..."]) */
+body[data-aurora="ocean"] {
+  --aurora: repeating-linear-gradient(100deg,#1e3a8a 10%,#2563eb 15%,#60a5fa 20%,#93c5fd 25%,#38bdf8 30%);
+  --accent: #60a5fa;
+}
+body[data-aurora="emerald"] {
+  --aurora: repeating-linear-gradient(100deg,#065f46 10%,#10b981 15%,#34d399 20%,#86efac 25%,#22d3ee 30%);
+  --accent: #10b981;
+}
+body[data-aurora="royal"] {
+  --aurora: repeating-linear-gradient(100deg,#4c1d95 10%,#7c3aed 15%,#a78bfa 20%,#c4b5fd 25%,#60a5fa 30%);
+  --accent: #7c3aed;
+}
+body[data-aurora="crimson"] {
+  --aurora: repeating-linear-gradient(100deg,#7f1d1d 10%,#ef4444 15%,#f87171 20%,#fb7185 25%,#f59e0b 30%);
+  --accent: #ef4444;
+}
+body[data-aurora="sunset"] {
+  --aurora: repeating-linear-gradient(100deg,#7c2d12 10%,#f97316 15%,#fb923c 20%,#fda4af 25%,#fde047 30%);
+  --accent: #f59e0b;
+}
+body[data-aurora="osher"]
+ {
+    --aurora: repeating-linear-gradient(100deg, #000000 10%, #eb2548 15%, #fa6060 20%, #000000 25%, #f83838 30%);
+    --accent: #000000;
+}
+
+/* Base layout */
+html, body {
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  line-height: 1.6;
+}
+.container {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* Aurora background layer */
+.aurora-bg {
+  position: relative;
+  isolation: isolate;
+  background: radial-gradient(1200px 800px at var(--aurora-x) var(--aurora-y), color-mix(in oklab, var(--accent) 16%, transparent), transparent 60%), var(--bg);
+  overflow-x: clip;
+}
+.aurora-bg::before, .aurora-bg::after {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(10px);
+  background-image: var(--white-gradient), var(--aurora);
+  background-size: 300%, 200%;
+  background-position: 50% 50%, 50% 50%;
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  animation: auroraShift 60s linear infinite;
+}
+@media (prefers-color-scheme: dark) {
+  .aurora-bg::before, .aurora-bg::after {
+    background-image: var(--dark-gradient), var(--aurora);
+    mix-blend-mode: lighten;
+  }
+}
+@keyframes auroraShift {
+  0%   { background-position: 50% 50%, 25% 40%; }
+  50%  { background-position: 50% 50%, 70% 65%; }
+  100% { background-position: 50% 50%, 25% 40%; }
+}
+
+/* Glass cards + headings */
+.card {
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: clamp(16px, 3vw, 28px);
+}
+h1, h2, h3 {
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+}
+h1 { font-size: clamp(28px, 4.5vw, 46px); }
+h2 { font-size: clamp(22px, 3.5vw, 34px); }
+.lead { color: var(--muted); }
+a.highlight {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+
+/* Reveal on scroll */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 480ms ease, transform 520ms cubic-bezier(.2,.8,.2,1);
+  will-change: opacity, transform;
+}
+[data-reveal].reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Utilities */
+.section { padding-block: clamp(56px, 7vw, 110px); }
+.grid { display: grid; gap: 16px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
+  background: color-mix(in oklab, var(--surface) 60%, transparent);
+  color: var(--text);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--accent) 40%, transparent);
+  box-shadow: 0 12px 38px color-mix(in oklab, var(--accent) 18%, transparent);
+}
+
+/* Selection */
+::selection { background: color-mix(in oklab, var(--accent) 35%, transparent); color: white; }
