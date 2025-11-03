@@ -144,3 +144,110 @@
     techContent.classList.toggle("open");
   });
 })();
+
+
+
+// ---------- HyperText Scramble (vanilla) ----------
+(() => {
+  const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const randLetter = () => ALPHABET[Math.floor(Math.random() * ALPHABET.length)];
+
+  // Transforme le contenu en <span class="ht-letter">...</span>
+  function wrapLetters(el) {
+    if (el.dataset.htWrapped === "1") return;
+    const text = el.textContent;
+    el.dataset.htTarget = text;                 // conserve le texte final
+    el.textContent = "";
+    [...text].forEach((ch, i) => {
+      const span = document.createElement("span");
+      span.className = "ht-letter";
+      span.textContent = ch === " " ? " " : randLetter();
+      span.style.transitionDelay = `${i * 8}ms`; // léger échelonnage
+      el.appendChild(span);
+    });
+    el.dataset.htWrapped = "1";
+  }
+
+
+
+
+// ============================================================================
+
+  // animation des lettres du carousel qui remplacent progressivement par les lettres cibles
+  function scrambleToTarget(el, { duration = 800 } = {}) {
+    const target = el.dataset.htTarget || el.textContent;
+    const letters = el.querySelectorAll(".ht-letter");
+    let progress = 0;
+    const steps = Math.max(10, Math.ceil(duration / 16));
+    const perCharUnlock = target.length / steps;
+
+    const raf = () => {
+      progress++;
+      const unlockIndex = Math.floor(progress * perCharUnlock);
+
+      letters.forEach((span, i) => {
+        const finalCh = target[i] ?? "";
+        if (finalCh === " ") {
+          span.textContent = " ";
+          return;
+        }
+        if (i <= unlockIndex) {
+          // verrouillé sur la bonne lettre, petit effet d'arrivée
+          if (span.textContent !== finalCh) {
+            span.textContent = finalCh.toUpperCase();
+            span.style.transform = "translateY(0)";
+            span.style.opacity = "1";
+          }
+        } else {
+          // bruit temporaire
+          span.textContent = randLetter();
+          span.style.transform = "translateY(-6px)";
+          span.style.opacity = "0.9";
+        }
+      });
+
+      if (progress < steps) {
+        requestAnimationFrame(raf);
+      } else {
+        // fin propre: on s'assure du texte exact
+        letters.forEach((span, i) => (span.textContent = (target[i] ?? "").toUpperCase()));
+      }
+    };
+
+    requestAnimationFrame(raf);
+  }
+
+  function setupHyperTextTitles() {
+    const titles = document.querySelectorAll(".slider--item .slider--item-title");
+    titles.forEach((el) => {
+      wrapLetters(el);
+      // Anim au survol de la carte ou focus clavier
+      const card = el.closest(".slider--item");
+      const trigger = () => scrambleToTarget(el, { duration: 800 });
+      if (card) {
+        card.addEventListener("mouseenter", trigger);
+        card.addEventListener("focusin", trigger);
+      } else {
+        el.addEventListener("mouseenter", trigger);
+        el.addEventListener("focusin", trigger);
+      }
+    });
+
+    // Animation au chargement sur les 2 premières cartes pour la vibe
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReduced) {
+      titles.forEach((el, idx) => {
+        if (idx < 2) {
+          setTimeout(() => scrambleToTarget(el, { duration: 900 }), 150 + idx * 120);
+        }
+      });
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupHyperTextTitles);
+  } else {
+    setupHyperTextTitles();
+  }
+})()
+// ============================================================================

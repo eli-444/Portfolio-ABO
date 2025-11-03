@@ -326,6 +326,9 @@ nav {
 }
 #projects h1 { margin-bottom: 6px; }
 
+#projects .work .slider {
+  gap: clamp(28px, 3.2vw, 44px);
+}
 /* Hide the old arrows text but keep accessible */
 .slider--prev,
 .slider--next {
@@ -368,6 +371,7 @@ nav {
 }
 .slider::-webkit-scrollbar { display: none; }
 
+/* ---- CARD ---- */
 .slider--item {
   position: relative;
   flex: 0 0 clamp(260px, 32vw, 380px);
@@ -379,21 +383,50 @@ nav {
   border: 1px solid color-mix(in oklab, var(--text) 10%, transparent);
   transition: transform 350ms ease, box-shadow 350ms ease, border-color 300ms ease, opacity 300ms ease;
   will-change: transform;
+
+  /* centrage parfait du contenu */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-.slider--item img {
+
+/* si des images trainent encore dans le markup, on les cache */
+.slider--item img { display: none !important; }
+
+/* l'ancre remplit la carte et centre son contenu */
+.slider--item .project-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transform: scale(1.06);
-  filter: saturate(1.05) contrast(1.02);
+  text-decoration: none;
+  padding: clamp(12px, 3vw, 24px);
 }
+
+/* ---- TITLE ---- */
 .slider--item .slider--item-title {
-  position: absolute;
-  left: 16px;
-  bottom: 16px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  position: static !important; /* neutralise d'anciennes règles absolues */
+  margin: 0;
+  max-width: 90%;
+  line-height: 1.15;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: clamp(1.4rem, 3.8vw, 2.8rem); /* grand & fluide */
+  color: var(--text);
+  user-select: none;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+}
+
+/* Assure le centrage même quand le JS ajoute ces classes */
+.slider--item-left,
+.slider--item-right,
+.slider--item-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Scale cards relative to center (CSS only approximation, JS improves further) */
@@ -413,6 +446,12 @@ nav {
   inset: 0;
   pointer-events: none;
   mask: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* Accessibilité : moins d’animations */
+@media (prefers-reduced-motion: reduce) {
+  .slider:has(.slider--item:hover) .slider--item:not(:hover) { transform: none; }
+  .slider--item:hover { transform: none; }
 }
 
 /* ---------- Techwatch (collapsible) ---------- */
@@ -476,4 +515,97 @@ footer {
 ::selection {
   background: color-mix(in oklab, var(--primary) 35%, transparent);
   color: white;
+}
+
+/* Mobile adjustments: header, nav, spacing, etc. */
+@media (max-width: 900px) {
+  /* Existing breakpoint for about-me grid already present */
+  nav {
+    flex-direction: column;
+    gap: 8px;
+    padding-block: 8px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding-inline: 0;
+  }
+  .container {
+    width: 100%;
+    padding-inline: var(--gutter);
+  }
+  .section {
+    padding-block: clamp(36px, 8vw, 72px);
+  }
+  #about-me .about-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  #about-me .about-text h1 {
+    font-size: clamp(22px, 8vw, 32px);
+  }
+  #about-me .about-image {
+    border-radius: var(--radius-xl);
+  }
+  #parcours .timeline {
+    gap: 10px;
+    margin-top: 10px;
+  }
+  #parcours article {
+    padding: 10px;
+    border-radius: 14px;
+  }
+  #skills .skills-container {
+    gap: 8px;
+  }
+  .skill-card {
+    padding: 12px;
+  }
+  #projects .work {
+    gap: 8px;
+  }
+  .slider--item {
+    height: clamp(220px, 42vw, 320px);
+    flex-basis: clamp(180px, 60vw, 240px);
+    border-radius: 20px;
+  }
+  .slider {
+    gap: 8px;
+    padding: 8px;
+  }
+  #contact .social-links {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  #contact img {
+    width: 32px;
+    height: 32px;
+  }
+  footer {
+    padding: 10px;
+    font-size: 0.75rem;
+    margin-top: 30px;
+  }
+  .btn, .cv-button, .contact-button {
+    padding: 8px 12px;
+    font-size: 0.95em;
+  }
+}
+
+/* Smallest screens (mobile XS) */
+@media (max-width: 420px) {
+  .slider--item {
+    height: 180px;
+    flex-basis: 120px;
+    border-radius: 14px;
+  }
+  .about-text h1 {
+    font-size: 1.55rem;
+  }
 }
