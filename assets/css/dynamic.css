@@ -288,7 +288,7 @@ nav {
   transform: translateY(-2px);
   border-color: color-mix(in oklab, var(--primary) 30%, transparent);
 }
-#parcours h1 { margin-bottom: 12px; }
+#parcours h1 { margin-bottom: 12px; font-size: clamp(24px, 4vw, 36px); }
 
 /* ---------- Skills Grid ---------- */
 #skills .skills-container {
@@ -297,6 +297,8 @@ nav {
   gap: 16px;
   margin-top: 18px;
 }
+
+#skills h1 { margin-bottom: 12px; font-size: clamp(24px, 4vw, 36px); }
 .skill-card {
   display: grid;
   place-items: center;
@@ -324,7 +326,7 @@ nav {
   display: grid;
   gap: 16px;
 }
-#projects h1 { margin-bottom: 6px; }
+#projects h1 { margin-bottom: 6px; font-size: clamp(24px, 4vw, 36px); }
 
 #projects .work .slider {
   gap: clamp(28px, 3.2vw, 44px);
@@ -476,6 +478,8 @@ nav {
   gap: 14px;
   align-items: center;
 }
+#contact h1 { margin-bottom: 12px; font-size: clamp(24px, 4vw, 36px); }
+
 #contact img {
   filter: drop-shadow(0 10px 30px rgba(0,0,0,0.25));
   transition: transform 200ms ease;
@@ -606,6 +610,6 @@ footer {
     border-radius: 14px;
   }
   .about-text h1 {
-    font-size: 1.55rem;
+    font-size: 1.55rem; font-size: clamp(24px, 4vw, 36px);
   }
 }
