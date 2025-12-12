@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche Révision : Séparation, Abandon & Prématurité</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Bleu foncé médical */
+            --accent-color: #e67e22; /* Orange pour différencier du document précédent (ou garder bleu si préféré) */
+            --highlight-bg: #fdf2e9;
+            --warning-bg: #fdf2f2;
+            --warning-text: #c0392b;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+        }
+
+        /* Je garde la même structure CSS pour la cohérence */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: 250px;
+            background-color: var(--primary-color);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        nav h2 {
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        nav ul { list-style: none; padding: 0; }
+        nav li { margin-bottom: 15px; }
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--accent-color); font-weight: bold; }
+
+        /* Main Content */
+        main {
+            margin-left: 250px;
+            padding: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 { margin: 0; font-size: 2rem; }
+        .subtitle { opacity: 0.9; margin-top: 10px; display: block;}
+
+        section { margin-bottom: 50px; scroll-margin-top: 20px; }
+        
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        h3 { color: #d35400; margin-top: 25px; }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        ul { padding-left: 20px; }
+        
+        .source-tag {
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            vertical-align: super;
+            margin-left: 2px;
+            text-decoration: none;
+        }
+
+        .info-box {
+            background-color: var(--highlight-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .alert-box {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-text);
+            color: var(--warning-text);
+            padding: 15px;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .columns { display: flex; gap: 20px; flex-wrap: wrap; }
+        .col { flex: 1; min-width: 300px; }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            main { margin-left: 0; padding: 20px; }
+            .columns { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>Sommaire</h2>
+        <ul>
+            <li><a href="#intro-separation">1. Séparation Mère-Bébé</a></li>
+            <li><a href="#theorie">Cadres Théoriques</a></li>
+            <li><a href="#types-separation">Normale vs Pathogène</a></li>
+            <li><a href="#role-sf-separation">Rôle Sage-Femme (Séparation)</a></li>
+            <li><a href="#abandon">2. L'Abandon</a></li>
+            <li><a href="#impact-abandon">Impacts Psycho (Enfant/Mère)</a></li>
+            <li><a href="#prema-intro">3. La Prématurité</a></li>
+            <li><a href="#prema-parents">Enjeux Parents & Triangle</a></li>
+            <li><a href="#prema-bebe">Enjeux pour le Bébé</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Séparation, Abandon et Prématurité</h1>
+            <span class="subtitle">MA4 UE SSH - Psychologie Périnatale</span>
+            <div style="margin-top: 10px; font-size: 0.9em;">Basé sur le cours de L'Haridon </div>
+        </header>
+
+        <section id="intro-separation">
+            <h2>1. Concepts clés de la Séparation</h2>
+            <div class="card">
+                <p>La séparation est un thème central (accouchement, néonat, retour domicile) . Elle doit être pensée comme un processus d'autonomisation, mais peut devenir pathologique.</p>
+                
+                <div class="columns">
+                    <div class="col">
+                        <h3>Concepts Fondamentaux </h3>
+                        <ul>
+                            <li><strong>Attachement :</strong> Base de sécurité pour explorer le monde.</li>
+                            <li><strong>Indifférenciation :</strong> (Stern) Le bébé ne se distingue pas encore de la mère au début.</li>
+                            <li><strong>Préoccupation Maternelle Primaire :</strong> (Winnicott) État de sensibilité accrue de la mère.</li>
+                            <li><strong>Matrescence :</strong> Bouleversement identitaire, dissonance entre bébé réel et fantasmé .</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="theorie">
+            <h2>Cadres Théoriques de Référence</h2>
+            <div class="card">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Auteur / Théorie</th>
+                            <th>Concepts Clés</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>John Bowlby</strong> (Attachement)</td>
+                            <td>Besoin primaire. Une séparation brutale crée détresse et troubles du développement .</td>
+                        </tr>
+                        <tr>
+                            <td><strong>D.W. Winnicott</strong></td>
+                            <td><em>Holding, Handling, Object Presenting</em>. La séparation naturelle est un passage progressif de la fusion à la différenciation .</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Serge Lebovici</strong></td>
+                            <td>Le conflit <strong>Bébé Imaginaire vs Bébé Réel</strong>. Si l'écart est trop grand ou la séparation brutale, risque de rejet/ambivalence .</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="types-separation">
+            <div class="card">
+                <h2>Types de Séparation : Normale ou Pathogène ?</h2>
+                <p>La nature, la durée et les circonstances déterminent l'impact de la séparation .</p>
+                
+                <div class="columns">
+                    <div class="col info-box">
+                        <h3>Séparation Normale </h3>
+                        <ul>
+                            <li><strong>Contexte :</strong> Inévitable ou bénéfique (soins néonat, couveuse temporaire, sevrage).</li>
+                            <li><strong>Caractéristiques :</strong> Temporaire, expliquée, lien maintenu.</li>
+                            <li><strong>Conséquence :</strong> Perturbation légère, pas de séquelles si bon accompagnement .</li>
+                        </ul>
+                    </div>
+                    <div class="col alert-box">
+                        <h3>Séparation Pathogène </h3>
+                        <ul>
+                            <li><strong>Contexte :</strong> Négligence, abandon, violence, ou hospitalisation longue sans lien.</li>
+                            <li><strong>Caractéristiques :</strong> Précoce, prolongée, brutale, non justifiée médicalement.</li>
+                            <li><strong>Conséquence :</strong> Troubles de l'attachement, anxiété, dépression infantile .</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="role-sf-separation">
+            <h2>Rôle de la Sage-Femme</h2>
+            <div class="card">
+                <ul>
+                    <li><strong>Repérage :</strong> Mère distante, silencieuse ou hyper-anxieuse ("il est tout pour moi"), rejet .</li>
+                    <li><strong>Accompagnement :</strong> Favoriser le peau à peau, soins participatifs, légitimer les émotions maternelles .</li>
+                    <li><strong>Maintien du lien :</strong> Si séparation physique, utiliser photos, vidéos, objets transitionnels .</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="abandon">
+            <h2>2. L'Abandon</h2>
+            <div class="card">
+                <p>Événement psychique d'une violence extrême ("Trauma du non-lien" ou "Trauma du vide") .</p>
+                <p>Peut concerner : Accouchement sous X, adoption immédiate, placement forcé .</p>
+            </div>
+        </section>
+
+        <section id="impact-abandon">
+            <div class="card">
+                <h3>Impacts Psychologiques</h3>
+                <div class="columns">
+                    <div class="col">
+                        <h4>Sur l'Enfant (René Spitz & Bowlby)</h4>
+                        <ul>
+                            <li><strong>Angoisse du 8ème mois :</strong> Séparation source de grande détresse .</li>
+                            <li><strong>Hospitalisme (Spitz) :</strong> Repli, apathie, retard moteur et cognitif dû à la carence affective .</li>
+                            <li><strong>Troubles de l'attachement :</strong> Évitant, anxieux ou désorganisé .</li>
+                            <li><strong>Identité :</strong> Sentiment d'incomplétude, quête douloureuse des origines ("Bébé sans miroir") .</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h4>Sur la Mère</h4>
+                        <ul>
+                            <li>Culpabilité intense (surtout si volontaire).</li>
+                            <li>Deuil symbolique et manque.</li>
+                            <li>Risque de dépression post-partum .</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <strong>Note d'espoir :</strong> La résilience est possible grâce à un environnement sécure (famille adoptive), la mise en récit de l'histoire (vérité) et la thérapie .
+                </div>
+            </div>
+        </section>
+
+        <section id="prema-intro">
+            <h2>3. La Prématurité</h2>
+            <div class="card">
+                <p><strong>Définition :</strong> Naissance avant 37 SA . Touche 7,5% des naissances en France .</p>
+                <ul style="column-count: 2;">
+                    <li><strong>Légère/Modérée :</strong> 32 à 36 SA+6</li>
+                    <li><strong>Grande prématurité :</strong> 28 à 31 SA+6</li>
+                    <li><strong>Extrême prématurité :</strong> < 28 SA </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="prema-parents">
+            <div class="card">
+                <h2>Enjeux Psychiques Parentaux</h2>
+                <p>La naissance est souvent vécue comme traumatique (choc, rupture du scénario idéal) .</p>
+                <ul>
+                    <li><strong>Mère :</strong> Culpabilité, sentiment d'échec corporel, vide .</li>
+                    <li><strong>Père :</strong> Souvent en soutien mais risque d'exclusion émotionnelle .</li>
+                </ul>
+
+                <h3>Le Triangle Mère-Père-Bébé en Néonat </h3>
+                <div class="columns">
+                    <div class="col info-box" style="background: #eaf2f8;">
+                        <strong>Mère & Bébé</strong><br>
+                        Lien fondamental (peau à peau, allaitement). La mère est le soignant principal émotionnel .
+                    </div>
+                    <div class="col info-box" style="background: #fdfefe;">
+                        <strong>Père & Mère</strong><br>
+                        Soutien émotionnel et logistique. Le père protège la mère face au stress .
+                    </div>
+                    <div class="col info-box" style="background: #fdf2e9;">
+                        <strong>Père & Bébé</strong><br>
+                        Pilier de soutien, présence physique. Relation proche même si moins dans le nourrissage direct .
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prema-bebe">
+            <div class="card">
+                <h2>Enjeux pour le Bébé Prématuré</h2>
+                <div class="alert-box">
+                    Le bébé est <strong>sensoriellement et neurologiquement immature</strong> .
+                </div>
+                <ul>
+                    <li><strong>Stress néonatal :</strong> Bruit, lumière, procédures médicales agressives .</li>
+                    <li><strong>Risques :</strong> Altération des rythmes, fragilité de l'attachement .</li>
+                </ul>
+                <h3>Interventions Favorables</h3>
+                <ul>
+                    <li><strong>Peau à peau (Kangourou) :</strong> Essentiel pour la régulation thermique et le lien .</li>
+                    <li><strong>Contenance psychique :</strong> Utilisation de la voix, du regard, de l'odeur pour sécuriser l'enfant .</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 20px; color: #7f8c8d; font-size: 0.8rem;">
+            Fiche de révision publié en ligne rien que pour toi ma petite Célia :3.
+        </footer>
+    </main>
+
+</body>
+</html>

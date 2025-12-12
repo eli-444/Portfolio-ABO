@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche Révision : Le Handicap et l'Annonce</title>
+    <style>
+        :root {
+            --primary-color: #00695c; /* Vert Émeraude foncé */
+            --accent-color: #26a69a; /* Vert plus clair */
+            --highlight-bg: #e0f2f1;
+            --warning-bg: #fff3e0;
+            --warning-text: #e65100;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        nav {
+            width: 250px;
+            background-color: var(--primary-color);
+            color: white;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        nav h2 {
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        nav ul { list-style: none; padding: 0; }
+        nav li { margin-bottom: 15px; }
+        nav a {
+            color: #b2dfdb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #ffffff; font-weight: bold; }
+
+        /* Main Content */
+        main {
+            margin-left: 250px;
+            padding: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 { margin: 0; font-size: 2rem; }
+        .subtitle { opacity: 0.9; margin-top: 10px; display: block;}
+
+        section { margin-bottom: 50px; scroll-margin-top: 20px; }
+        
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        h3 { color: var(--primary-color); margin-top: 25px; opacity: 0.9; }
+        h4 { color: var(--accent-color); margin-top: 15px; }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        ul { padding-left: 20px; }
+        
+        .source-tag {
+            font-size: 0.75rem;
+            color: #7f8c8d;
+            vertical-align: super;
+            margin-left: 2px;
+            text-decoration: none;
+        }
+
+        .info-box {
+            background-color: var(--highlight-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .alert-box {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-text);
+            color: var(--warning-text);
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .columns { display: flex; gap: 20px; flex-wrap: wrap; }
+        .col { flex: 1; min-width: 300px; }
+
+        /* Style spécifique pour l'étude de cas */
+        .case-study {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .timeline-item {
+            padding-left: 20px;
+            border-left: 3px solid #ccc;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -6.5px;
+            top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            main { margin-left: 0; padding: 20px; }
+            .columns { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>Sommaire</h2>
+        <ul>
+            <li><a href="#intro">Introduction & Ouvrages</a></li>
+            <li><a href="#annonce-prenatale">I. Annonce Prénatale</a></li>
+            <li><a href="#principes-prenatals">Principes & CPDP</a></li>
+            <li><a href="#annonce-postnatale">II. Annonce Postnatale</a></li>
+            <li><a href="#principes-postnatals">Les 3 Principes Clés</a></li>
+            <li><a href="#accompagnement">Soutien & Sortie</a></li>
+            <li><a href="#etude-cas">III. Étude de Cas Clinique</a></li>
+            <li><a href="#questions-equipe">Questions d'équipe</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Le Handicap : Psychologie et Annonce</h1>
+            <span class="subtitle">MA4 UE SSH - Bloc 6SDC - Semestre 7</span>
+            <div style="margin-top: 10px; font-size: 0.9em;">Basé sur le cours de L'Haridon </div>
+        </header>
+
+        <section id="intro">
+            <div class="card">
+                <h2>Introduction et Contexte</h2>
+                <div class="columns">
+                    <div class="col">
+                        <h3>Ouvrages de Référence </h3>
+                        <ul>
+                            <li><strong>Simone Korff-Sausse :</strong> <em>Le miroir brisé : l'enfant handicapé...</em></li>
+                            <li><strong>Luc Vanden Driessche :</strong> <em>Le narcissisme parental face au handicap...</em></li>
+                            <li><strong>Sigmund Freud :</strong> <em>Pour introduire le narcissisme</em>.</li>
+                            <li><strong>D.W. Winnicott :</strong> <em>De la pédiatrie à la psychanalyse</em>.</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Évolution du contexte </h3>
+                        <p>Autrefois perçu comme une fatalité, le handicap est aujourd'hui dépisté précocement grâce aux progrès (médecine fœtale, génétique).</p>
+                        <ul>
+                            <li><strong>L'illusion :</strong> Croire que tout est dépistable et évitable.</li>
+                            <li><strong>Éthique :</strong> Les progrès de la réanimation posent la question de la survie au prix de lourds handicaps (IMG vs Réanimation).</li>
+                            <li><strong>Impact :</strong> Sentiment de révolte, colère, culpabilité chez les parents à l'annonce .</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="annonce-prenatale">
+            <h2>I. L'Annonce Prénatale</h2>
+            <div class="card">
+                <p>Le désir des parents est variable : certains veulent tout savoir, d'autres non . En l'absence d'antécédents, les parents s'attendent à un résultat favorable, rendant le choc plus violent.</p>
+                
+                <div id="principes-prenatals" class="info-box">
+                    <h3>Le Rôle des Structures (CPDP) </h3>
+                    <p>Les <strong>Centres Pluridisciplinaires de Diagnostic Prénatal (CPDP)</strong> sont essentiels pour éviter les avis divergents qui traumatisent les parents.</p>
+                    <ul>
+                        <li><strong>Composition :</strong> Obstétricien, échographiste, généticien, pédiatre, psychologue.</li>
+                        <li><strong>Fonction :</strong> Expertise clinique, biologique, et conseils thérapeutiques/pronostiques.</li>
+                        <li><strong>Cohérence :</strong> Un médecin référent (souvent l'obstétricien) reste l'interlocuteur privilégié.</li>
+                    </ul>
+                </div>
+
+                <h3>Principes de l'annonce </h3>
+                <ul>
+                    <li><strong>Vérité :</strong> Les parents y ont droit et refusent le silence ou la fuite.</li>
+                    <li><strong>Spécificité de l'examen :</strong>
+                        <ul>
+                            <li><em>Biologie/Génétique :</em> Consultation préalable nécessaire pour expliquer les risques. Annonce faite par le prescripteur.</li>
+                            <li><em>Échographie :</em> Situation délicate en direct. Le médecin doit expliquer ce qu'il voit, prendre le temps, et orienter vers le CPDP si besoin .</li>
+                        </ul>
+                    </li>
+                    <li><strong>Temporalité :</strong> Ne pas presser les parents. Il faut du temps pour le choc, l'émotion, puis la réflexion (IMG ou poursuite de grossesse) .</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="annonce-postnatale">
+            <h2>II. L'Annonce Postnatale</h2>
+            <div class="card">
+                <p>Situation où l'enfant naît avec une déficience ou un risque. <span style="color: var(--warning-text);">Important : Ne pas parler d'emblée de "handicap" .</span></p>
+
+                <div id="principes-postnatals" class="alert-box">
+                    <h3>Les 3 Principes Fondamentaux </h3>
+                    <ol>
+                        <li><strong>Aménager les conditions :</strong>
+                            <ul>
+                                <li>Choisir le moment et un lieu intime.</li>
+                                <li>Annonce faite par un <strong>médecin expérimenté</strong> + un soignant (témoin/soutien).</li>
+                                <li>Présence des <strong>deux parents</strong> si possible.</li>
+                                <li>Présence du <strong>bébé</strong> : permet de lui donner sa place d'enfant malgré tout.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Communiquer sur Certitudes/Incertitudes :</strong>
+                            <ul>
+                                <li>Utiliser des mots simples.</li>
+                                <li>Admettre les limites des connaissances (pronostic incertain) n'est pas préjudiciable, au contraire.</li>
+                                <li>Favoriser l'observation des compétences de l'enfant.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Préserver l'avenir :</strong>
+                            <ul>
+                                <li>Ne pas enfermer l'enfant dans un jugement définitif.</li>
+                                <li>Souligner le rôle actif que les parents peuvent jouer.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="accompagnement">
+            <div class="card">
+                <h2>Soutien et Préparation de la Sortie</h2>
+                <div class="columns">
+                    <div class="col">
+                        <h3>Pendant le séjour </h3>
+                        <ul>
+                            <li><strong>L'enfant :</strong> Le considérer comme une personne avec des besoins propres. Le regard soignant est modélisant.</li>
+                            <li><strong>La mère :</strong> Éviter la séparation mère-enfant. Si transfert nécessaire, organiser des visites.</li>
+                            <li><strong>Le père :</strong> Ne pas le marginaliser, c'est le couple qui a besoin d'aide.</li>
+                            <li><strong>L'équipe :</strong> Groupes de parole nécessaires pour gérer le vécu émotionnel des soignants .</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Dispositifs de Sortie </h3>
+                        <ul>
+                            <li><strong>Congé de présence parentale :</strong> Interruption d'activité (jusqu'à 1 an, partageable) avec allocation journalière.</li>
+                            <li><strong>CAMSP :</strong> Centre d'Action Médico-Sociale Précoce (0-6 ans, soins + rééduc).</li>
+                            <li><strong>SESSAD :</strong> Service d'Éducation Spéciale et de Soins à Domicile (soins à la maison/école).</li>
+                            <li><strong>CDES (MDPH) :</strong> Commission pour la reconnaissance du handicap et les allocations (AES).</li>
+                            <li><strong>PMI :</strong> Protection Maternelle et Infantile.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="etude-cas">
+            <h2>III. Étude de Cas Clinique : Spina Bifida</h2>
+            <div class="card case-study">
+                <h3>Le Contexte </h3>
+                <p>Femme 38 ans, G6P2, référée à 17 SA. Diagnostic : <strong>Spina-bifida + anomalies cérébrales + malposition pied</strong>.</p>
+                <p><strong>Antécédents lourds :</strong> Fille de 11 ans diabétique (appris la même semaine), fils aîné épileptique, parents cousins germains.</p>
+
+                <h3>Chronologie et Réactions </h3>
+                <div class="timeline-item">
+                    <strong>Annonce & Réaction :</strong> La mère refuse l'amniocentèse. "C'est grave mais on garde la grossesse". Refus de médicalisation excessive ("ne pas me stresser").
+                </div>
+                <div class="timeline-item">
+                    <strong>Suivi Grossesse :</strong> Relation de confiance avec l'échographiste qui accepte de montrer que "le bébé grandit" sans insister uniquement sur les malformations.
+                </div>
+                <div class="timeline-item">
+                    <strong>Position du Père :</strong> "Dieu décide". Mais pose la question d'une vie normale (réponse négative de l'équipe).
+                </div>
+                <div class="timeline-item">
+                    <strong>Naissance (36 SA) :</strong> Mère sereine car elle sentait son bébé bouger ("c'était un enfant comme les autres"). Peur d'être jugée pour ne pas avoir fait d'IMG.
+                </div>
+                <div class="timeline-item">
+                    <strong>Post-Natal & Tensions :</strong> Enfant avec atrésie anale + fistule. Pronostic vital engagé.
+                    <br><em>Conflit :</em> L'équipe perçoit de l'<strong>acharnement thérapeutique</strong> et un déni parental. Les parents refusent l'arrêt des soins ("ne pas tuer leur bébé").
+                </div>
+                <div class="timeline-item">
+                    <strong>Issue :</strong> Amélioration spontanée de l'enfant. Sortie à J71 puis J95. L'enfant commence à boire au biberon.
+                </div>
+            </div>
+
+            <div id="questions-equipe" class="card alert-box" style="background-color: #e8f4f8; border-color: #2980b9; color: #2c3e50;">
+                <h3>Questions soulevées pour les soignants </h3>
+                <ul>
+                    <li>Pourquoi la patiente ne se sent-elle pas "entendue" malgré l'écoute de l'équipe ?</li>
+                    <li>Comment gérer le décalage entre la vision médicale ("acharnement") et parentale ("espoir/foi") ?</li>
+                    <li>Où placer la limite éthique entre soins curatifs et palliatifs ?</li>
+                    <li>Nécessité de réunions pluridisciplinaires pour apaiser les tensions de l'équipe.</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 20px; color: #7f8c8d; font-size: 0.8rem;">
+            Fiche de révision publiée en ligne rien que pour toi ma petite Célia :3 .
+        </footer>
+    </main>
+
+</body>
+</html>
