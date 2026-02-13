@@ -6,15 +6,15 @@
   <meta name="description" content="Portfolio personnel - Présentation, projets, veille technologique et contact" />
   <title>Portfolio — Arthur Boda</title>
 
-  <!-- Fonts -->
+  <!-- Fonts (Hyperstudio-inspired stack) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- One dynamic stylesheet to replace the old multi-CSS setup -->
-  <link rel="stylesheet" href="assets/css/dynamic.css" />
+  <!-- Hyperstudio-inspired stylesheet -->
+  <link rel="stylesheet" href="assets/css/hyper.css" />
 </head>
-<body class="aurora-bg">
+<body class="hs">
   <header>
     <nav>
       <div class="logo"><a href="https://www.arthur-boda.fr">Arthur Boda</a></div>
@@ -23,7 +23,7 @@
         <li><a href="#parcours">Parcours</a></li>
         <li><a href="#skills">Compétences</a></li>
         <li><a href="#projects">Projets</a></li>
-        <li><a href="#contact">Contacts</a></li>
+        <li><a class="nav-cta" href="#contact">Let's chat</a></li>
       </ul>
     </nav>
   </header>
@@ -32,26 +32,24 @@
     <section id="about-me" class="section container" data-reveal>
       <div class="about-container">
         <div class="about-text">
-          <h1>Bonjour, je m'appelle <span class="highlight">Arthur Boda</span></h1>
-          <p>Étudiant et développeur passionné (apps métier & web), je conçois des interfaces performantes et des systèmes robustes.</p>
-          <p>Je partage ici mes travaux, projets et expérimentations.</p>
+          <p class="kicker">BIENVENUE</p>
+          <h1>Bonjour, je m'appelle <span class="highlight">Arthur Boda</span>.</h1>
+          <p class="lead">Étudiant & développeur (apps métier & web). Je conçois des interfaces performantes et des systèmes robustes — avec une obsession pour la clarté, la vitesse et les détails.</p>
           <ul>
-            <li><strong>Statut:</strong> Développeur / Intégrateur en recherche d'alternance</li>
+            <li><strong>Statut:</strong> Développeur / Intégrateur</li>
             <li><strong>Mail:</strong> arthur.boda@outlook.fr</li>
-            <li><strong>Localisation:</strong> Villeurbanne, France</li>
+            <li><strong>Localisation:</strong> Lyon, France</li>
           </ul>
-          <div class="cv-container">
-            <a class="btn primary" href="assets/srcfile/cvWeb.pdf" download>Télécharger CV FR</a>
-            <a class="btn primary" href="assets/srcfile/InternationalCV.pdf" download>Download CV EN</a>
-          </div>
+
         </div>
         <div class="about-image">
-          <img src="assets/img/introduction-visual.png" alt="Arthur — visuel d'introduction" />
+          <img src="assets/img/digitalcreationofadam.jpg" alt="Arthur — visuel d'introduction" />
         </div>
       </div>
     </section>
 
     <section id="parcours" class="section container" data-reveal>
+      <p class="kicker">// PARCOURS</p>
       <h1>Mon parcours</h1>
       <div class="timeline">
 
@@ -84,30 +82,57 @@
     </section>
 
     <section id="skills" class="section container" data-reveal>
-      <h1>Mes Compétences</h1>
+      <p class="kicker">// COMPÉTENCES</p>
+      <h1>Mes compétences</h1>
       <div class="skills-container">
-        <div class="skill-card"><img src="assets/img/htmllogo.png" alt="HTML" /><p>HTML5</p></div>
-        <div class="skill-card"><img src="assets/img/csslogo.png" alt="CSS" /><p>CSS3</p></div>
-        <div class="skill-card"><img src="assets/img/javascriptlogo.png" alt="JS" /><p>JavaScript</p></div>
-        <div class="skill-card"><img src="assets/img/pythonlogo.png" alt="Python" /><p>Python</p></div>
-        <div class="skill-card"><img src="assets/img/react.png" alt="React" /><p>React</p></div>
-        <div class="skill-card"><img src="assets/img/vuejs.png" alt="Vue.js" /><p>Vue.js</p></div>
-        <div class="skill-card"><img src="assets/img/javalogo.png" alt="Java" /><p>Java</p></div>
-        <div class="skill-card"><img src="assets/img/chsarplogo.png" alt="C#" /><p>C#</p></div>
-        <div class="skill-card"><img src="assets/img/phplogo.png" alt="PHP" /><p>PHP</p></div>
-        <div class="skill-card"><img src="assets/img/sqllogo.png" alt="MySQL" /><p>MySQL</p></div>
-        <div class="skill-card"><img src="assets/img/batchlogo.png" alt="Batch" /><p>Batch</p></div>
-        <div class="skill-card"><img src="assets/img/phpmyamdinlogo.png" alt="PhpMyAdmin" /><p>PhpMyAdmin</p></div>
-        <div class="skill-card"><img src="assets/img/vscodelogo.png" alt="VSCode" /><p>VS Code</p></div>
-        <div class="skill-card"><img src="assets/img/gitlogo.png" alt="Git" /><p>Git</p></div>
-        <div class="skill-card"><img src="assets/img/kalilogo.png" alt="Kali" /><p>Kali Linux</p></div>
-        <div class="skill-card"><img src="assets/img/windowslogo.png" alt="Windows" /><p>Windows</p></div>
-        <div class="skill-card"><img src="assets/img/gsuitelogo.png" alt="Google Suite" /><p>Google Suite</p></div>
+        <div class="skills-row">
+          <div class="skills-track">
+            <div class="skill-card"><img src="assets/img/htmllogo.png" alt="HTML" /><p>HTML5</p></div>
+            <div class="skill-card"><img src="assets/img/csslogo.png" alt="CSS" /><p>CSS3</p></div>
+            <div class="skill-card"><img src="assets/img/javascriptlogo.png" alt="JS" /><p>JavaScript</p></div>
+            <div class="skill-card"><img src="assets/img/pythonlogo.png" alt="Python" /><p>Python</p></div>
+            <div class="skill-card"><img src="assets/img/react.png" alt="React" /><p>React</p></div>
+            <div class="skill-card"><img src="assets/img/vuejs.png" alt="Vue.js" /><p>Vue.js</p></div>
+            <div class="skill-card"><img src="assets/img/javalogo.png" alt="Java" /><p>Java</p></div>
+            <div class="skill-card"><img src="assets/img/chsarplogo.png" alt="C#" /><p>C#</p></div>
+            <div class="skill-card"><img src="assets/img/phplogo.png" alt="PHP" /><p>PHP</p></div>
+            <div class="skill-card"><img src="assets/img/htmllogo.png" alt="" aria-hidden="true" /><p>HTML5</p></div>
+            <div class="skill-card"><img src="assets/img/csslogo.png" alt="" aria-hidden="true" /><p>CSS3</p></div>
+            <div class="skill-card"><img src="assets/img/javascriptlogo.png" alt="" aria-hidden="true" /><p>JavaScript</p></div>
+            <div class="skill-card"><img src="assets/img/pythonlogo.png" alt="" aria-hidden="true" /><p>Python</p></div>
+            <div class="skill-card"><img src="assets/img/react.png" alt="" aria-hidden="true" /><p>React</p></div>
+            <div class="skill-card"><img src="assets/img/vuejs.png" alt="" aria-hidden="true" /><p>Vue.js</p></div>
+            <div class="skill-card"><img src="assets/img/javalogo.png" alt="" aria-hidden="true" /><p>Java</p></div>
+            <div class="skill-card"><img src="assets/img/chsarplogo.png" alt="" aria-hidden="true" /><p>C#</p></div>
+            <div class="skill-card"><img src="assets/img/phplogo.png" alt="" aria-hidden="true" /><p>PHP</p></div>
+          </div>
+        </div>
+        <div class="skills-row reverse">
+          <div class="skills-track">
+            <div class="skill-card"><img src="assets/img/sqllogo.png" alt="MySQL" /><p>MySQL</p></div>
+            <div class="skill-card"><img src="assets/img/batchlogo.png" alt="Batch" /><p>Batch</p></div>
+            <div class="skill-card"><img src="assets/img/phpmyamdinlogo.png" alt="PhpMyAdmin" /><p>PhpMyAdmin</p></div>
+            <div class="skill-card"><img src="assets/img/vscodelogo.png" alt="VSCode" /><p>VS Code</p></div>
+            <div class="skill-card"><img src="assets/img/gitlogo.png" alt="Git" /><p>Git</p></div>
+            <div class="skill-card"><img src="assets/img/kalilogo.png" alt="Kali" /><p>Kali Linux</p></div>
+            <div class="skill-card"><img src="assets/img/windowslogo.png" alt="Windows" /><p>Windows</p></div>
+            <div class="skill-card"><img src="assets/img/gsuitelogo.png" alt="Google Suite" /><p>Google Suite</p></div>
+            <div class="skill-card"><img src="assets/img/sqllogo.png" alt="" aria-hidden="true" /><p>MySQL</p></div>
+            <div class="skill-card"><img src="assets/img/batchlogo.png" alt="" aria-hidden="true" /><p>Batch</p></div>
+            <div class="skill-card"><img src="assets/img/phpmyamdinlogo.png" alt="" aria-hidden="true" /><p>PhpMyAdmin</p></div>
+            <div class="skill-card"><img src="assets/img/vscodelogo.png" alt="" aria-hidden="true" /><p>VS Code</p></div>
+            <div class="skill-card"><img src="assets/img/gitlogo.png" alt="" aria-hidden="true" /><p>Git</p></div>
+            <div class="skill-card"><img src="assets/img/kalilogo.png" alt="" aria-hidden="true" /><p>Kali Linux</p></div>
+            <div class="skill-card"><img src="assets/img/windowslogo.png" alt="" aria-hidden="true" /><p>Windows</p></div>
+            <div class="skill-card"><img src="assets/img/gsuitelogo.png" alt="" aria-hidden="true" /><p>Google Suite</p></div>
+          </div>
+        </div>
       </div>
     </section>
 
 <section id="projects" class="section container" data-reveal>
   <div class="work">
+    <p class="kicker">// WORK</p>
     <h1>Sélectionner un projet</h1>
     <div class="work--lockup">
       <button class="slider--prev" aria-label="Précédent">❮</button>
@@ -115,11 +140,6 @@
         <li class="slider--item">
           <a href="https://aurorawebandsecurity.fr/" class="project-link">
             <p class="slider--item-title">Aurora Web & Security</p>
-          </a>
-        </li>
-        <li class="slider--item">
-          <a href="projectsPage/osher.html" class="project-link">
-            <p class="slider--item-title">Osher</p>
           </a>
         </li>
         <li class="slider--item">
@@ -145,6 +165,7 @@
 </section>
 
     <section id="contact" class="section container" data-reveal>
+      <p class="kicker">// CONTACT</p>
       <h1>Contacts</h1>
       <div class="social-links">
         <a href="https://www.linkedin.com/in/arthur-boda-b15299239/" target="_blank" rel="noreferrer">

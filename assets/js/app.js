@@ -1,253 +1,128 @@
-
 /* =======================================================
-   app.js — lightweight interactions for Aurora Portfolio
-   Powers: theme toggle, header blur on scroll, reveal,
-           aurora parallax, and Apple-like carousel controls
+   app.js — minimal interactions (Hyperstudio-inspired)
+   - sticky header state
+   - smooth anchor scroll
+   - reveal on scroll
+   - projects carousel controls
    ======================================================= */
 
-(function () {
-  const root = document.documentElement;
-
-  // ---- Theme handling ----
-  const THEME_KEY = "theme";
-  function applyStoredTheme() {
-    const t = localStorage.getItem(THEME_KEY);
-    if (t === "dark" || t === "light") {
-      root.setAttribute("data-theme", t);
-    }
-  }
-  function toggleTheme() {
-    const cur = root.getAttribute("data-theme");
-    const next = cur === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem(THEME_KEY, next);
-  }
-  applyStoredTheme();
-
-  // Create a floating theme toggle
-  const toggle = document.createElement("button");
-  toggle.className = "btn";
-  toggle.style.position = "fixed";
-  toggle.style.bottom = "20px";
-  toggle.style.right = "20px";
-  toggle.style.zIndex = "60";
-  toggle.ariaLabel = "Basculer le thème";
-  toggle.textContent = "Thème";
-  toggle.addEventListener("click", toggleTheme);
-  document.addEventListener("DOMContentLoaded", () => document.body.appendChild(toggle));
-
-  // ---- Header scrolled effect ----
+(() => {
   const header = document.querySelector("header");
+
+  // Header compact state on scroll
   const onScroll = () => {
     if (!header) return;
-    if (window.scrollY > 8) header.classList.add("scrolled");
-    else header.classList.remove("scrolled");
+    header.classList.toggle("scrolled", window.scrollY > 8);
   };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  // ---- Smooth scroll for internal nav links ----
+  // Smooth scroll for internal links
   document.addEventListener("click", (e) => {
     const a = e.target.closest('a[href^="#"]');
     if (!a) return;
+
     const id = a.getAttribute("href");
     if (!id || id === "#") return;
+
     const el = document.querySelector(id);
     if (!el) return;
+
     e.preventDefault();
     el.scrollIntoView({ behavior: "smooth", block: "start" });
     history.pushState(null, "", id);
   });
 
-  // ---- Reveal on scroll ----
+  // Reveal on scroll
   const revealEls = document.querySelectorAll("[data-reveal]");
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal-in");
-          io.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
-  revealEls.forEach((el) => io.observe(el));
+  if (revealEls.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  }
 
-  // ---- Aurora parallax (subtle) ----
-  const auroraParallax = (e) => {
-    const { innerWidth: W, innerHeight: H } = window;
-    const x = (e.clientX / W) * 100;
-    const y = (e.clientY / H) * 100;
-    root.style.setProperty("--aurora-x", x + "%");
-    root.style.setProperty("--aurora-y", y + "%");
-  };
-  window.addEventListener("pointermove", auroraParallax);
-
-  // ---- Apple-like carousel for #projects ----
+  // Projects carousel controls (index only)
   const slider = document.querySelector("#projects .slider");
   const prev = document.querySelector("#projects .slider--prev");
   const next = document.querySelector("#projects .slider--next");
+  const projectItems = slider ? Array.from(slider.querySelectorAll(".slider--item")) : [];
+  let currentIndex = 0;
 
-  function canScrollLeft() {
-    if (!slider) return false;
-    return slider.scrollLeft > 0;
-  }
-  function canScrollRight() {
-    if (!slider) return false;
-    return slider.scrollLeft < slider.scrollWidth - slider.clientWidth - 1;
-  }
-  function updateButtons() {
-    if (!prev || !next || !slider) return;
-    prev.disabled = !canScrollLeft();
-    next.disabled = !canScrollRight();
-  }
-  function scrollByAmount(dir = 1) {
-    if (!slider) return;
-    const card = slider.querySelector(".slider--item");
-    const cardWidth = card ? card.getBoundingClientRect().width : 320;
-    const gap = 16;
-    slider.scrollBy({ left: dir * (cardWidth + gap), behavior: "smooth" });
-  }
-  prev?.addEventListener("click", () => scrollByAmount(-1));
-  next?.addEventListener("click", () => scrollByAmount(1));
-  slider?.addEventListener("scroll", updateButtons, { passive: true });
-  window.addEventListener("resize", updateButtons);
-  updateButtons();
-
-  // Centering & scale effect relative to viewport center
-  function scaleCards() {
-    if (!slider) return;
-    const cards = slider.querySelectorAll(".slider--item");
-    const centerX = slider.getBoundingClientRect().left + slider.clientWidth / 2;
-    cards.forEach((card) => {
-      const rect = card.getBoundingClientRect();
-      const cardCenter = rect.left + rect.width / 2;
-      const dist = Math.abs(centerX - cardCenter);
-      const norm = Math.min(dist / slider.clientWidth, 1);
-      const scale = 1.06 - norm * 0.12; // 1.06 -> 0.94
-      card.style.transform = `translateY(${(-1 + norm * 6).toFixed(1)}px) scale(${scale.toFixed(3)})`;
-      card.style.opacity = String(1 - norm * 0.15);
-    });
-    updateButtons();
-  }
-  const scaleRAF = () => requestAnimationFrame(scaleCards);
-  slider?.addEventListener("scroll", scaleRAF, { passive: true });
-  window.addEventListener("resize", scaleRAF);
-  window.addEventListener("load", scaleRAF);
-
-  // ---- Techwatch expand/collapse ----
-  const techContent = document.querySelector("#techwatch .tech-content");
-  const techBtn = document.querySelector("#techwatch .toggle-btn");
-  techBtn?.addEventListener("click", () => {
-    if (!techContent) return;
-    techContent.classList.toggle("open");
-  });
-})();
-
-
-
-// ---------- HyperText Scramble (vanilla) ----------
-(() => {
-  const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const randLetter = () => ALPHABET[Math.floor(Math.random() * ALPHABET.length)];
-
-  // Transforme le contenu en <span class="ht-letter">...</span>
-  function wrapLetters(el) {
-    if (el.dataset.htWrapped === "1") return;
-    const text = el.textContent;
-    el.dataset.htTarget = text;                 // conserve le texte final
-    el.textContent = "";
-    [...text].forEach((ch, i) => {
-      const span = document.createElement("span");
-      span.className = "ht-letter";
-      span.textContent = ch === " " ? " " : randLetter();
-      span.style.transitionDelay = `${i * 8}ms`; // léger échelonnage
-      el.appendChild(span);
-    });
-    el.dataset.htWrapped = "1";
+  function loopIndex(i, len) {
+    return (i + len) % len;
   }
 
-
-
-
-// ============================================================================
-
-  // animation des lettres du carousel qui remplacent progressivement par les lettres cibles
-  function scrambleToTarget(el, { duration = 800 } = {}) {
-    const target = el.dataset.htTarget || el.textContent;
-    const letters = el.querySelectorAll(".ht-letter");
-    let progress = 0;
-    const steps = Math.max(10, Math.ceil(duration / 16));
-    const perCharUnlock = target.length / steps;
-
-    const raf = () => {
-      progress++;
-      const unlockIndex = Math.floor(progress * perCharUnlock);
-
-      letters.forEach((span, i) => {
-        const finalCh = target[i] ?? "";
-        if (finalCh === " ") {
-          span.textContent = " ";
-          return;
-        }
-        if (i <= unlockIndex) {
-          // verrouillé sur la bonne lettre, petit effet d'arrivée
-          if (span.textContent !== finalCh) {
-            span.textContent = finalCh.toUpperCase();
-            span.style.transform = "translateY(0)";
-            span.style.opacity = "1";
-          }
-        } else {
-          // bruit temporaire
-          span.textContent = randLetter();
-          span.style.transform = "translateY(-6px)";
-          span.style.opacity = "0.9";
-        }
-      });
-
-      if (progress < steps) {
-        requestAnimationFrame(raf);
-      } else {
-        // fin propre: on s'assure du texte exact
-        letters.forEach((span, i) => (span.textContent = (target[i] ?? "").toUpperCase()));
-      }
-    };
-
-    requestAnimationFrame(raf);
+  function clearProjectStateClasses(el) {
+    el.classList.remove("is-center", "is-left", "is-right", "is-far-left", "is-far-right", "pivot-left", "pivot-right");
   }
 
-  function setupHyperTextTitles() {
-    const titles = document.querySelectorAll(".slider--item .slider--item-title");
-    titles.forEach((el) => {
-      wrapLetters(el);
-      // Anim au survol de la carte ou focus clavier
-      const card = el.closest(".slider--item");
-      const trigger = () => scrambleToTarget(el, { duration: 800 });
-      if (card) {
-        card.addEventListener("mouseenter", trigger);
-        card.addEventListener("focusin", trigger);
-      } else {
-        el.addEventListener("mouseenter", trigger);
-        el.addEventListener("focusin", trigger);
-      }
+  function updateProjectCarousel(dir = 1) {
+    if (!projectItems.length) return;
+
+    const total = projectItems.length;
+    const leftIndex = loopIndex(currentIndex - 1, total);
+    const rightIndex = loopIndex(currentIndex + 1, total);
+    const farLeftIndex = loopIndex(currentIndex - 2, total);
+    const farRightIndex = loopIndex(currentIndex + 2, total);
+
+    projectItems.forEach((item) => {
+      clearProjectStateClasses(item);
+      item.setAttribute("aria-hidden", "true");
+      const link = item.querySelector(".project-link");
+      if (link) link.tabIndex = -1;
     });
 
-    // Animation au chargement sur les 2 premières cartes pour la vibe
+    projectItems[currentIndex].classList.add("is-center");
+    projectItems[leftIndex].classList.add("is-left");
+    projectItems[rightIndex].classList.add("is-right");
+    projectItems[farLeftIndex].classList.add("is-far-left");
+    projectItems[farRightIndex].classList.add("is-far-right");
+
+    projectItems[currentIndex].setAttribute("aria-hidden", "false");
+    const currentLink = projectItems[currentIndex].querySelector(".project-link");
+    if (currentLink) currentLink.tabIndex = 0;
+
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!prefersReduced) {
-      titles.forEach((el, idx) => {
-        if (idx < 2) {
-          setTimeout(() => scrambleToTarget(el, { duration: 900 }), 150 + idx * 120);
-        }
-      });
-    }
+    if (prefersReduced) return;
+    const pivotClass = dir < 0 ? "pivot-left" : "pivot-right";
+    projectItems[currentIndex].classList.add(pivotClass);
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupHyperTextTitles);
-  } else {
-    setupHyperTextTitles();
+  function updateButtons() {
+    if (!prev || !next) return;
+    const disable = projectItems.length <= 1;
+    prev.disabled = disable;
+    next.disabled = disable;
   }
-})()
-// ============================================================================
+
+  prev?.addEventListener("click", () => {
+    if (projectItems.length <= 1) return;
+    currentIndex = loopIndex(currentIndex - 1, projectItems.length);
+    updateProjectCarousel(-1);
+  });
+
+  next?.addEventListener("click", () => {
+    if (projectItems.length <= 1) return;
+    currentIndex = loopIndex(currentIndex + 1, projectItems.length);
+    updateProjectCarousel(1);
+  });
+
+  slider?.addEventListener("animationend", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (event.animationName !== "project-card-pivot-left" && event.animationName !== "project-card-pivot-right") return;
+    target.classList.remove("pivot-left", "pivot-right");
+  });
+  window.addEventListener("resize", updateButtons);
+  updateProjectCarousel(1);
+  updateButtons();
+})();
