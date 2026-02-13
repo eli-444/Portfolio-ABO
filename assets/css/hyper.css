@@ -550,8 +550,8 @@ nav {
   width: 34px;
   height: 34px;
   object-fit: contain;
-  filter: grayscale(1) brightness(1.3);
-  opacity: 0.95;
+  filter: none;
+  opacity: 1;
 }
 
 .skill-card p {
